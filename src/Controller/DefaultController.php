@@ -17,8 +17,6 @@ class DefaultController extends Controller
     {
         $weezevent = new Weezevent('compte0015@hotmail.fr', 'AzertY@33/Weez', 'accbf05c0bc82872681e3c63eb9d0d4d');
 
-        $test = $weezevent->getEventDetails('358962');
-
         $events = $weezevent->getEvents([
             'include_not_published' => true,    
             'include_closed'        => true,
@@ -63,16 +61,7 @@ class DefaultController extends Controller
             }
 
         }
-
-
-        // $spectacle = new Spectacle();
-
-        // $spectacle->setNom();
-
-        // $em = $this->getDoctrine()->getManager();
-        // $em->persist($spectacle);
-        // $em->flush();
-
-        return $this->render('default/index.html.twig', ['test' => $events]);
+        
+        return $this->render('default/index.html.twig');
     }
 }
