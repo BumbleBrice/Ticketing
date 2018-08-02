@@ -15,9 +15,9 @@ class DefaultController extends Controller
      */
     public function index(SpectacleRepository $spectacleRepository)
     {
-        $weezevent = new Weezevent('compte0015@hotmail.fr', 'AzertY@33/Weez', 'accbf05c0bc82872681e3c63eb9d0d4d');
+        $weezevent = new Weezevent('collilieux.brice@gmail.com', 'bumbleDev&2018', 'accbf05c0bc82872681e3c63eb9d0d4d');
 
-        $test = $weezevent->getEventDetails('358962');
+        $test = $weezevent->getEventDetails('364030');
 
         $events = $weezevent->getEvents([
             'include_not_published' => true,    
