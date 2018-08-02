@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContactPartenaire index{% endblock %}
+
+{% block body %}
+    <h1>ContactPartenaire index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Sujet</th>
+                <th>Newsletter</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact_partenaire in contact_partenaires %}
+            <tr>
+                <td>{{ contact_partenaire.id }}</td>
+                <td>{{ contact_partenaire.nom }}</td>
+                <td>{{ contact_partenaire.prenom }}</td>
+                <td>{{ contact_partenaire.telephone }}</td>
+                <td>{{ contact_partenaire.email }}</td>
+                <td>{{ contact_partenaire.sujet ? contact_partenaire.sujet|join(', ') : '' }}</td>
+                <td>{{ contact_partenaire.newsletter ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('contact_partenaire_show', {'id': contact_partenaire.id}) }}">show</a>
+                    <a href="{{ path('contact_partenaire_edit', {'id': contact_partenaire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('contact_partenaire_new') }}">Create new</a>
+{% endblock %}

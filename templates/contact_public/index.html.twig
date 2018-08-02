@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContactPublic index{% endblock %}
+
+{% block body %}
+    <h1>ContactPublic index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Sujet</th>
+                <th>Newsletter</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact_public in contact_publics %}
+            <tr>
+                <td>{{ contact_public.id }}</td>
+                <td>{{ contact_public.nom }}</td>
+                <td>{{ contact_public.prenom }}</td>
+                <td>{{ contact_public.email }}</td>
+                <td>{{ contact_public.telephone }}</td>
+                <td>{{ contact_public.sujet }}</td>
+                <td>{{ contact_public.newsletter ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('contact_public_show', {'id': contact_public.id}) }}">show</a>
+                    <a href="{{ path('contact_public_edit', {'id': contact_public.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('contact_public_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContactPublic{% endblock %}
+
+{% block body %}
+    <h1>ContactPublic</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact_public.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ contact_public.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ contact_public.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ contact_public.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ contact_public.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Sujet</th>
+                <td>{{ contact_public.sujet }}</td>
+            </tr>
+            <tr>
+                <th>Newsletter</th>
+                <td>{{ contact_public.newsletter ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('contact_public_index') }}">back to list</a>
+
+    <a href="{{ path('contact_public_edit', {'id': contact_public.id}) }}">edit</a>
+
+    {{ include('contact_public/_delete_form.html.twig') }}
+{% endblock %}

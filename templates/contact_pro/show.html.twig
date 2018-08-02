@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContactPro{% endblock %}
+
+{% block body %}
+    <h1>ContactPro</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact_pro.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ contact_pro.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ contact_pro.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ contact_pro.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ contact_pro.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Organisme</th>
+                <td>{{ contact_pro.organisme }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ contact_pro.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Vousetes</th>
+                <td>{{ contact_pro.vousetes ? contact_pro.vousetes|join(', ') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Newsletter</th>
+                <td>{{ contact_pro.newsletter ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('contact_pro_index') }}">back to list</a>
+
+    <a href="{{ path('contact_pro_edit', {'id': contact_pro.id}) }}">edit</a>
+
+    {{ include('contact_pro/_delete_form.html.twig') }}
+{% endblock %}

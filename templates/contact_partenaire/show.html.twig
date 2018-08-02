@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContactPartenaire{% endblock %}
+
+{% block body %}
+    <h1>ContactPartenaire</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact_partenaire.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ contact_partenaire.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ contact_partenaire.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ contact_partenaire.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ contact_partenaire.email }}</td>
+            </tr>
+            <tr>
+                <th>Sujet</th>
+                <td>{{ contact_partenaire.sujet ? contact_partenaire.sujet|join(', ') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Newsletter</th>
+                <td>{{ contact_partenaire.newsletter ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('contact_partenaire_index') }}">back to list</a>
+
+    <a href="{{ path('contact_partenaire_edit', {'id': contact_partenaire.id}) }}">edit</a>
+
+    {{ include('contact_partenaire/_delete_form.html.twig') }}
+{% endblock %}
