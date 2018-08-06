@@ -1,0 +1,114 @@
+body {
+	font-family: 'Orbitron', sans-serif;
+	background-color: black;
+}
+h1 {
+    font-weight: normal;
+	color: white;
+	font-size: 1.3rem;
+	margin-bottom: 0;
+	margin-top: .5rem;
+	text-align: right;
+}
+@media all and(min-width: 361px) {
+	h1 {
+		font-size: 5rem;
+		text-align: center;
+	}
+}
+h2 {
+	text-align: right;
+	font-size: .8rem;
+	color: white;
+    
+}
+@media all and (min-width: 361px) {
+	h2 {
+		font-size: 3rem;
+		text-align: center;
+	}
+}
+hr {
+	display: block;
+	clear: both;
+	height: 0;
+	margin: 0 auto;
+	padding: 0;
+	font-family: arial;
+	width: 85%;
+	border-top: 3px solid white;
+} 
+#curtains h2 {
+	margin-top: 0;
+}
+@media all (min-width: 360px){
+	#curtains h2 {
+		margin-top: 1.5rem;
+	}
+}
+nav button {
+	margin-top: 2.52rem;
+}
+.navbar-brand img {
+	width: 50px;
+}
+@media all and (min-width: 361px){
+	.navbar-brand img {
+		width: 100px;
+	}
+}
+@media all and (min-width: 720px){
+	.navbar-brand img {
+		width: 100px;
+	}
+}
+#exampleAccordion img {
+	width: 25px;
+}
+#curtains {
+	background: black url(../img/rideaux1.jpg) no-repeat top;
+}
+.fa-fw {
+    color: white;
+}
+.card {
+	background-color: rgba(0, 0, 0, 0.4);
+}
+.card h6 {
+	font-family: 'Julius Sans One', sans-serif;
+}
+.card a{
+	color: white;
+}
+.card p, .card div {
+	color: #6c757d;
+}
+footer {
+	background-color: black;
+	color: white;
+}
+
+/* Style all font awesome icons */
+footer .fa {
+	margin-top: 5px;
+    padding: 10px;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Add a hover effect if you want */
+footer .fa:hover {
+    opacity: 0.7;
+    background: white;
+    
+}
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
