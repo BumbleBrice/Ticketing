@@ -17,6 +17,8 @@ class SpectacleType extends AbstractType
             ->add('places')
             ->add('description')
             ->add('weezevent_id')
+            ->add('last_update')
+            ->add('Picture')
         ;
     }
 

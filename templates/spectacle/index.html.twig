@@ -14,6 +14,8 @@
                 <th>Places</th>
                 <th>Description</th>
                 <th>Weezevent_id</th>
+                <th>Last_update</th>
+                <th>Picture</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -26,6 +28,8 @@
                 <td>{{ spectacle.places }}</td>
                 <td>{{ spectacle.description }}</td>
                 <td>{{ spectacle.weezeventId }}</td>
+                <td>{{ spectacle.lastUpdate }}</td>
+                <td>{{ spectacle.Picture }}</td>
                 <td>
                     <a href="{{ path('spectacle_show', {'id': spectacle.id}) }}">show</a>
                     <a href="{{ path('spectacle_edit', {'id': spectacle.id}) }}">edit</a>
@@ -33,7 +37,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="9">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

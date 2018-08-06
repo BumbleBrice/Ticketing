@@ -40,6 +40,7 @@ class DefaultController extends Controller
                 $spectacle->setDescription($eventDetail->events->description);
                 $spectacle->setWeezeventId($event->id);
                 $spectacle->setLastUpdate($eventDetail->last_update);
+                $spectacle->setPicture($eventDetail->events->image);
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($spectacle);
@@ -55,6 +56,7 @@ class DefaultController extends Controller
                 $spectacle->setDescription($eventDetail->events->description);
                 $spectacle->setWeezeventId($event->id);
                 $spectacle->setLastUpdate($eventDetail->last_update);
+                $spectacle->setPicture($eventDetail->events->image);
 
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();
