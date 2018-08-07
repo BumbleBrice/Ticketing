@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/spectacle")
@@ -26,6 +27,7 @@ class SpectacleController extends Controller
 
     /**
      * @Route("/new", name="spectacle_new", methods="GET|POST")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function new(Request $request): Response
     {
