@@ -19,6 +19,10 @@ security:
                 login_path: login
                 check_path: login
                 provider: my_provider
+                
+            logout:
+                path:   /logout
+                target: /
             # activate different ways to authenticate
 
             # http_basic: true
