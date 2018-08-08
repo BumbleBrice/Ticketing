@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Spectacle;
 use App\Service\Weezevent;
+use App\Service\RefreshEvents;
 use App\Form\SpectacleType;
 use App\Repository\SpectacleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -20,56 +21,10 @@ class SpectacleController extends Controller
     /**
      * @Route("/", name="spectacle_index", methods="GET")
      */
-    public function index(SpectacleRepository $spectacleRepository): Response
+    public function index(SpectacleRepository $spectacleRepository, RefreshEvents $RefreshEvents): Response
     {
-        $weezevent = new Weezevent('collilieux.brice@gmail.com', 'bumbleDev&2018', 'accbf05c0bc82872681e3c63eb9d0d4d');
+        $RefreshEvents->refresh($spectacleRepository, $this->getDoctrine()->getManager());
 
-        $events = $weezevent->getEvents([
-            'include_not_published' => true,    
-            'include_closed'        => true,
-            'include_without_sales' => true]);
-
-        foreach($events->events as $event)
-        {
-            $eventDetail = $weezevent->getEventDetails($event->id);
-
-            $spectacle = $spectacleRepository->findOneBy(['weezevent_id' => $event->id]);
-
-            if($spectacle === null)
-            {
-                $spectacle = new Spectacle();
-                $spectacle->setNom($event->name);
-                
-                $date = new \DateTime($event->date->start);
-
-                $spectacle->setDate($date);
-                $spectacle->setPlaces($event->participants);
-                $spectacle->setDescription($eventDetail->events->description);
-                $spectacle->setWeezeventId($event->id);
-                $spectacle->setLastUpdate($eventDetail->last_update);
-                $spectacle->setPicture($eventDetail->events->image);
-
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($spectacle);
-                $em->flush();
-            }
-            if($spectacle !== null && $spectacle->getLastUpdate() !== $eventDetail->last_update){
-                $spectacle->setNom($event->name);
-                
-                $date = new \DateTime($event->date->start);
-
-                $spectacle->setDate($date);
-                $spectacle->setPlaces($event->participants);
-                $spectacle->setDescription($eventDetail->events->description);
-                $spectacle->setWeezeventId($event->id);
-                $spectacle->setLastUpdate($eventDetail->last_update);
-                $spectacle->setPicture($eventDetail->events->image);
-
-                $em = $this->getDoctrine()->getManager();
-                $em->flush();
-            }
-        }
-        
         return $this->render('spectacle/index.html.twig', ['spectacles' => $spectacleRepository->findAll()]);
     }
 
@@ -100,55 +55,9 @@ class SpectacleController extends Controller
     /**
      * @Route("/{id}", name="spectacle_show", methods="GET")
      */
-    public function show(Spectacle $spectacleShow, SpectacleRepository $spectacleRepository): Response
+    public function show(Spectacle $spectacleShow, SpectacleRepository $spectacleRepository, RefreshEvents $RefreshEvents): Response
     {
-        $weezevent = new Weezevent('collilieux.brice@gmail.com', 'bumbleDev&2018', 'accbf05c0bc82872681e3c63eb9d0d4d');
-
-        $events = $weezevent->getEvents([
-            'include_not_published' => true,    
-            'include_closed'        => true,
-            'include_without_sales' => true]);
-
-        foreach($events->events as $event)
-        {
-            $eventDetail = $weezevent->getEventDetails($event->id);
-
-            $spectacle = $spectacleRepository->findOneBy(['weezevent_id' => $event->id]);
-
-            if($spectacle === null)
-            {
-                $spectacle = new Spectacle();
-                $spectacle->setNom($event->name);
-                
-                $date = new \DateTime($event->date->start);
-
-                $spectacle->setDate($date);
-                $spectacle->setPlaces($event->participants);
-                $spectacle->setDescription($eventDetail->events->description);
-                $spectacle->setWeezeventId($event->id);
-                $spectacle->setLastUpdate($eventDetail->last_update);
-                $spectacle->setPicture($eventDetail->events->image);
-
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($spectacle);
-                $em->flush();
-            }
-            if($spectacle !== null && $spectacle->getLastUpdate() !== $eventDetail->last_update){
-                $spectacle->setNom($event->name);
-                
-                $date = new \DateTime($event->date->start);
-
-                $spectacle->setDate($date);
-                $spectacle->setPlaces($event->participants);
-                $spectacle->setDescription($eventDetail->events->description);
-                $spectacle->setWeezeventId($event->id);
-                $spectacle->setLastUpdate($eventDetail->last_update);
-                $spectacle->setPicture($eventDetail->events->image);
-
-                $em = $this->getDoctrine()->getManager();
-                $em->flush();
-            }
-        }
+        $RefreshEvents->refresh($spectacleRepository, $this->getDoctrine()->getManager());
 
         return $this->render('spectacle/show.html.twig', ['spectacle' => $spectacleShow]);
     }
