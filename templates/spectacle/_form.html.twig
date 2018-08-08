@@ -1,4 +1,4 @@
-{{ form_start(form) }}
+{{ form_start(form, {'attr': {'class': 'test'}}) }}
     {{ form_errors(form) }}
 
     {{ form_row(form.nom, {'attr': {'class': 'unpute'}}) }}
@@ -6,7 +6,7 @@
     {{ form_row(form.date, {'attr': {'class': 'unpute'}}) }}
     {{ form_row(form.places, {'attr': {'class': 'unpute'}}) }}
     {{ form_row(form.Picture, {'attr': {'class': 'unpute'}}) }}
-    
+
     <button class="btn">{{ button_label|default('Save') }}</button>
 
 {{ form_end(form) }}
