@@ -10,13 +10,17 @@
         <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
 
-        <link rel="stylesheet" type="text/css" href="css/sb-admin.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/sb-admin.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
         {% endblock %}
         
     </head>
     <body class="fixed-nav sticky-footer" id="page-top">
+    	{% include 'nav.html.twig' %}
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+
+		{% include 'footer.html.twig' %}
     </body>
 </html>

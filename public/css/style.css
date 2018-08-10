@@ -10,7 +10,7 @@ h1 {
 	margin-top: .5rem;
 	text-align: right;
 }
-@media all and(min-width: 361px) {
+@media all and (min-width: 361px) {
 	h1 {
 		font-size: 5rem;
 		text-align: center;
