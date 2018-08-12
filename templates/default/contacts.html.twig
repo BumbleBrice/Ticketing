@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<ul>
+    <li>
+        <a href="{{ path('contact_partenaire_new') }}">Partenaire</a>
+        <a href="{{ path('contact_pro_new') }}">Pro</a>
+        <a href="{{ path('contact_public_new') }}">Public</a>
+    </li>
+</ul>
+
+{% endblock %}

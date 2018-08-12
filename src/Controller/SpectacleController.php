@@ -30,7 +30,7 @@ class SpectacleController extends Controller
 
     /**
      * @Route("/new", name="spectacle_new", methods="GET|POST")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function new(Request $request): Response
     {
@@ -64,6 +64,7 @@ class SpectacleController extends Controller
 
     /**
      * @Route("/{id}/edit", name="spectacle_edit", methods="GET|POST")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function edit(Request $request, Spectacle $spectacle): Response
     {
@@ -84,6 +85,7 @@ class SpectacleController extends Controller
 
     /**
      * @Route("/{id}", name="spectacle_delete", methods="DELETE")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function delete(Request $request, Spectacle $spectacle): Response
     {

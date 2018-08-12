@@ -19,6 +19,7 @@ security:
                 login_path: login
                 check_path: login
                 provider: my_provider
+                failure_path: login
 
             logout:
                 path:   /logout
