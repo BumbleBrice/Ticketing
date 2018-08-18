@@ -30,6 +30,8 @@ class User implements UserInterface
      */
     private $password;
 
+    public $NewPassword;
+
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\Email()

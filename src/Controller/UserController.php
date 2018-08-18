@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 /**
@@ -71,7 +72,7 @@ class UserController extends Controller
     /**
      * @Route("/{id}/edit", name="user_edit", methods="GET|POST")
      */
-    public function edit(Request $request, User $user, AuthorizationCheckerInterface $authChecker): Response
+    public function edit(Request $request, User $user, AuthorizationCheckerInterface $authChecker, UserPasswordEncoderInterface $encoder): Response
     {
         if (false === $authChecker->isGranted('ROLE_SUPER_ADMIN')) {
             return $this->redirectToRoute('login');
@@ -81,6 +82,9 @@ class UserController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
+            $user->setPassword($encoder->encodePassword($user, $user->NewPassword));
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_edit', ['id' => $user->getId()]);
@@ -88,7 +92,7 @@ class UserController extends Controller
 
         return $this->render('user/edit.html.twig', [
             'user' => $user,
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ]);
     }
 
