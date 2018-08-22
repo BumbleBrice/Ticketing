@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/contact/public")
@@ -17,6 +18,7 @@ class ContactPublicController extends Controller
 {
     /**
      * @Route("/", name="contact_public_index", methods="GET")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function index(ContactPublicRepository $contactPublicRepository): Response
     {
@@ -48,6 +50,7 @@ class ContactPublicController extends Controller
 
     /**
      * @Route("/{id}", name="contact_public_show", methods="GET")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function show(ContactPublic $contactPublic): Response
     {
@@ -55,27 +58,8 @@ class ContactPublicController extends Controller
     }
 
     /**
-     * @Route("/{id}/edit", name="contact_public_edit", methods="GET|POST")
-     */
-    public function edit(Request $request, ContactPublic $contactPublic): Response
-    {
-        $form = $this->createForm(ContactPublicType::class, $contactPublic);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('contact_public_edit', ['id' => $contactPublic->getId()]);
-        }
-
-        return $this->render('contact_public/edit.html.twig', [
-            'contact_public' => $contactPublic,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/{id}", name="contact_public_delete", methods="DELETE")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function delete(Request $request, ContactPublic $contactPublic): Response
     {

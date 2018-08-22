@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/contact/partenaire")
@@ -17,6 +18,7 @@ class ContactPartenaireController extends Controller
 {
     /**
      * @Route("/", name="contact_partenaire_index", methods="GET")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function index(ContactPartenaireRepository $contactPartenaireRepository): Response
     {
@@ -48,6 +50,7 @@ class ContactPartenaireController extends Controller
 
     /**
      * @Route("/{id}", name="contact_partenaire_show", methods="GET")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function show(ContactPartenaire $contactPartenaire): Response
     {
@@ -55,27 +58,8 @@ class ContactPartenaireController extends Controller
     }
 
     /**
-     * @Route("/{id}/edit", name="contact_partenaire_edit", methods="GET|POST")
-     */
-    public function edit(Request $request, ContactPartenaire $contactPartenaire): Response
-    {
-        $form = $this->createForm(ContactPartenaireType::class, $contactPartenaire);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('contact_partenaire_edit', ['id' => $contactPartenaire->getId()]);
-        }
-
-        return $this->render('contact_partenaire/edit.html.twig', [
-            'contact_partenaire' => $contactPartenaire,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/{id}", name="contact_partenaire_delete", methods="DELETE")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function delete(Request $request, ContactPartenaire $contactPartenaire): Response
     {

@@ -25,4 +25,28 @@ class DefaultController extends Controller
     {
         return $this->render('default/contacts.html.twig');
     }
+
+    /**
+     * @Route("/cgv", name="cgv")
+     */
+    public function cgv()
+    {
+        return $this->render('default/cgv.html.twig');
+    }
+
+    /**
+     * @Route("/cgu", name="cgu")
+     */
+    public function cgu()
+    {
+        return $this->render('default/cgu.html.twig');
+    }
+
+    /**
+     * @Route("/mentionslegales", name="mentions")
+     */
+    public function mentions()
+    {
+        return $this->render('default/mentions.html.twig');
+    }
 }

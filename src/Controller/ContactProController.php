@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\ContactPro;
 use App\Form\ContactProType;
 use App\Repository\ContactProRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/contact/pro")
@@ -17,6 +18,7 @@ class ContactProController extends Controller
 {
     /**
      * @Route("/", name="contact_pro_index", methods="GET")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function index(ContactProRepository $contactProRepository): Response
     {
@@ -48,6 +50,7 @@ class ContactProController extends Controller
 
     /**
      * @Route("/{id}", name="contact_pro_show", methods="GET")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function show(ContactPro $contactPro): Response
     {
@@ -55,27 +58,8 @@ class ContactProController extends Controller
     }
 
     /**
-     * @Route("/{id}/edit", name="contact_pro_edit", methods="GET|POST")
-     */
-    public function edit(Request $request, ContactPro $contactPro): Response
-    {
-        $form = $this->createForm(ContactProType::class, $contactPro);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('contact_pro_edit', ['id' => $contactPro->getId()]);
-        }
-
-        return $this->render('contact_pro/edit.html.twig', [
-            'contact_pro' => $contactPro,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/{id}", name="contact_pro_delete", methods="DELETE")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function delete(Request $request, ContactPro $contactPro): Response
     {
