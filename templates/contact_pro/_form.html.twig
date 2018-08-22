@@ -1,7 +1,10 @@
 {{ form_start(form, {'attr': {'class': 'test'}}) }}
     {{ form_errors(form) }}
 
-    {{ form_row(form.nom, {'attr': {'class': 'unpute'}}) }}
+    {{ form_label(form.nom, null, {'label_attr': {'class': 'unpute'}}) }}
+
+    {{ form_widget(form.nom, {'attr': {'class': 'unpute'}}) }}
+
     {{ form_row(form.prenom, {'attr': {'class': 'unpute'}}) }}
     {{ form_row(form.email, {'attr': {'class': 'unpute'}}) }}
     {{ form_row(form.telephone, {'attr': {'class': 'unpute'}}) }}
