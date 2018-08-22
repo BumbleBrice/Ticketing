@@ -3,12 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Spectacle;
+use App\Service\Weezevent;
+use App\Service\RefreshEvents;
 use App\Form\SpectacleType;
 use App\Repository\SpectacleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/spectacle")
@@ -18,13 +21,16 @@ class SpectacleController extends Controller
     /**
      * @Route("/", name="spectacle_index", methods="GET")
      */
-    public function index(SpectacleRepository $spectacleRepository): Response
+    public function index(SpectacleRepository $spectacleRepository, RefreshEvents $RefreshEvents): Response
     {
+        $RefreshEvents->refresh($spectacleRepository, $this->getDoctrine()->getManager());
+
         return $this->render('spectacle/index.html.twig', ['spectacles' => $spectacleRepository->findAll()]);
     }
 
     /**
      * @Route("/new", name="spectacle_new", methods="GET|POST")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function new(Request $request): Response
     {
@@ -49,13 +55,16 @@ class SpectacleController extends Controller
     /**
      * @Route("/{id}", name="spectacle_show", methods="GET")
      */
-    public function show(Spectacle $spectacle): Response
+    public function show(Spectacle $spectacleShow, SpectacleRepository $spectacleRepository, RefreshEvents $RefreshEvents): Response
     {
-        return $this->render('spectacle/show.html.twig', ['spectacle' => $spectacle]);
+        $RefreshEvents->refresh($spectacleRepository, $this->getDoctrine()->getManager());
+
+        return $this->render('spectacle/show.html.twig', ['spectacle' => $spectacleShow]);
     }
 
     /**
      * @Route("/{id}/edit", name="spectacle_edit", methods="GET|POST")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function edit(Request $request, Spectacle $spectacle): Response
     {
@@ -76,6 +85,7 @@ class SpectacleController extends Controller
 
     /**
      * @Route("/{id}", name="spectacle_delete", methods="DELETE")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function delete(Request $request, Spectacle $spectacle): Response
     {

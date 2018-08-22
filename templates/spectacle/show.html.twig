@@ -3,10 +3,54 @@
 {% block title %}Spectaclesss{% endblock %}
 
 {% block body %}
+<<<<<<< HEAD
 
 
+=======
+    <h1>Spectacle</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ spectacle.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ spectacle.nom }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ spectacle.date ? spectacle.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Places</th>
+                <td>{{ spectacle.places }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ spectacle.description }}</td>
+            </tr>
+            <tr>
+                <th>Weezevent_id</th>
+                <td>{{ spectacle.weezeventId }}</td>
+            </tr>
+            <tr>
+                <th>Last_update</th>
+                <td>{{ spectacle.lastUpdate }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ spectacle.Picture }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('spectacle_index') }}">back to list</a>
+>>>>>>> b9dd24e8642ba2aff3f0fac7fb5eb2da514a1486
 
 
+<<<<<<< HEAD
    <div class="container">
         <div id="SpectacleShow" class="row mt-5">
         <div class="col-lg-4">
@@ -27,4 +71,17 @@
     <iframe src="https://www.weezevent.com/widget_billeterie.php?id_evenement={{ spectacle.weezeventId }}&amp;lg_billetterie=1&amp;code=27455&amp;resize=1&amp;width_auto=1&amp;color_primary=00AEEF&amp;v=2" resize="1" hidepoweredby="0" scrolling="auto" style="box-sizing: initial;" width="100%" height="480px" frameborder="0"></iframe>
 
 
+=======
+    {{ include('spectacle/_delete_form.html.twig') }}
+
+    <iframe 
+    src="https://www.weezevent.com/widget_billeterie.php?id_evenement={{ spectacle.weezeventId }}&amp;lg_billetterie=1&amp;code=27455&amp;resize=1&amp;width_auto=1&amp;color_primary=00AEEF&amp;v=2" 
+    resize="1" 
+    hidepoweredby="0" 
+    scrolling="auto" 
+    style="box-sizing: initial;" 
+    width="100%" 
+    height="600" 
+    frameborder="0"></iframe>
+>>>>>>> b9dd24e8642ba2aff3f0fac7fb5eb2da514a1486
 {% endblock %}

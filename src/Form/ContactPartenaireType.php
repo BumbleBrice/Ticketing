@@ -14,8 +14,8 @@ class ContactPartenaireType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('telephone')
             ->add('email')
+            ->add('telephone')
             ->add('sujet')
             ->add('newsletter')
         ;

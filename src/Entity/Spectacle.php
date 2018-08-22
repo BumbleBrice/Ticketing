@@ -37,14 +37,19 @@ class Spectacle
     private $description;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $weezevent_id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $last_update;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Picture;
 
     public function getId()
     {
@@ -119,6 +124,18 @@ class Spectacle
     public function setLastUpdate(string $last_update): self
     {
         $this->last_update = $last_update;
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->Picture;
+    }
+
+    public function setPicture(?string $Picture): self
+    {
+        $this->Picture = $Picture;
 
         return $this;
     }

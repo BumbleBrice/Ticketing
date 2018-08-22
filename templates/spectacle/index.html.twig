@@ -3,6 +3,7 @@
 {% block title %}Spectacle index{% endblock %}
 
 {% block body %}
+<<<<<<< HEAD
 <div class="row mt-5">
 <!-- Card Columns Example Social Feed-->
 {% for spectacle in spectacles %}
@@ -22,5 +23,226 @@
     {% else %}
     <div>Aucun spectacle en cours</div>
 {% endfor %}
+=======
+    <div class="row mt-5">
+      <!-- Card Columns Example Social Feed-->
+        {% for spectacle in spectacles %}
+        <div class="col-lg-4">
+        <!-- Example Social Card-->
+        <div class="card mb-3 mr-4 ml-4">
+          <a href="#">
+            <img class="card-img-top img-fluid w-100" src="img/260.jpg" alt="">
+          </a>
+          <div class="card-body">
+            <h6 class="card-title mb-1"><a href="#">{{ spectacle.nom }}</a></h6>
+            <p class="card-text small">{{ spectacle.description }}</p>
+            <div class="card-footer small text-muted">{{ spectacle.date ? spectacle.date|date('d-m-y H:i') : '' }}</div>
+            <a href="{{ path('spectacle_show', {'id': spectacle.id}) }}" class="btn">En savoir plus</a>
+          </div>
+<!--            <td></td>
+                <td>{{ spectacle.places }}</td>
+                <td></td>
+                <td>{{ spectacle.weezeventId }}</td>
+                <td>
+                    <a href="">show</a>
+                    <a href="{{ path('spectacle_edit', {'id': spectacle.id}) }}">edit</a>
+                </td>
+
+    <a href="{{ path('spectacle_new') }}">Create new</a> -->
+<!--           <hr class="my-0">
+          <div class="card-body py-2 small">
+            <a class="mr-3 d-inline-block" href="#">
+              <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+            <a class="mr-3 d-inline-block" href="#">
+              <i class="fa fa-fw fa-comment"></i>Comment</a>
+            <a class="d-inline-block" href="#">
+              <i class="fa fa-fw fa-share"></i>Share</a>
+          </div> -->
+         <!-- <hr class="my-0">
+          <div class="card-body small bg-faded">
+            <div class="media">
+              <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
+              <div class="media-body">
+                <h6 class="mt-0 mb-1"><a href="#">John Smith</a></h6>Very nice! I wish I was there! That looks amazing!
+                 <ul class="list-inline mb-0">
+                  <li class="list-inline-item">
+                    <a href="#">Like</a>
+                  </li>
+                  <li class="list-inline-item">·</li>
+                  <li class="list-inline-item">
+                    <a href="#">Reply</a>
+                  </li>
+                </ul> 
+              </div>
+            </div>
+         <div class="media mt-3">
+              <a class="d-flex pr-3" href="#">
+                <img src="http://placehold.it/45x45" alt="">
+              </a>
+              <div class="media-body">
+                <h6 class="mt-0 mb-1"><a href="#">David Miller</a></h6>Next time for sure!
+                <ul class="list-inline mb-0">
+                  <li class="list-inline-item">
+                    <a href="#">Like</a>
+                  </li>
+                  <li class="list-inline-item">·</li>
+                  <li class="list-inline-item">
+                    <a href="#">Reply</a>
+                  </li>
+                </ul>
+              </div>
+            </div> 
+          </div>
+        <div class="card-footer small text-muted">Posted 32 mins ago</div> -->
+      </div>
+    </div>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        <!-- ******************* -->
+      <div class="col-lg-4">
+        <!-- Example Social Card-->
+        <div class="card mb-3 mr-4 ml-4">
+          <a href="#">
+            <img class="card-img-top img-fluid w-100" src="img/260.jpg" alt="">
+          </a>
+          <div class="card-body">
+            <h6 class="card-title mb-1"><a href="#">Un autre regard</a></h6>
+            <p class="card-text small">Avec (en alternance) : Louise Brown, Lise Malagnoux, Oriane Guy, Edwige Loubières, Maxime Menanteau, Mickaël Dieppois, Bertrand Dallos, Xavier Bourriot, Jules Mona et Guillaume Malagnoux. Avec la participation d'Eddy Fenouillet.</p>
+            <a href="" class="btn">En savoir plus</a>
+          </div>
+<!--           <hr class="my-0">
+          <div class="card-body py-2 small">
+            <a class="mr-3 d-inline-block" href="#">
+              <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+            <a class="mr-3 d-inline-block" href="#">
+              <i class="fa fa-fw fa-comment"></i>Comment</a>
+            <a class="d-inline-block" href="#">
+              <i class="fa fa-fw fa-share"></i>Share</a>
+          </div> -->
+      </div>
+    </div>
+    <!-- Card Columns Example Social Feed-->
+      <div class="col-lg-4">
+        <!-- Example Social Card-->
+        <div class="card mb-3 mr-4 ml-4">
+          <a href="#">
+            <img class="card-img-top img-fluid w-100" src="img/267.jpg" alt="">
+          </a>
+          <div class="card-body">
+            <h6 class="card-title mb-1"><a href="#">Hansel et Gretel</a></h6>
+            <p class="card-text small">Avec Edwige Loubières et Jules Mona</p>
+          </div>
+          <a href="" class="btn">En savoir plus</a>
+         <!--  <hr class="my-0">
+          <div class="card-body py-2 small">
+            <a class="mr-3 d-inline-block" href="#">
+              <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+            <a class="mr-3 d-inline-block" href="#">
+              <i class="fa fa-fw fa-comment"></i>Comment</a>
+            <a class="d-inline-block" href="#">
+              <i class="fa fa-fw fa-share"></i>Share</a>
+          </div> -->
+          <!--<hr class="my-0">
+          <div class="card-body small bg-faded">
+            <div class="media">
+              <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
+               <div class="media-body">
+                <h6 class="mt-0 mb-1"><a href="#">John Smith</a></h6>Very nice! I wish I was there! That looks amazing!
+                <ul class="list-inline mb-0">
+                  <li class="list-inline-item">
+                    <a href="#">Like</a>
+                  </li>
+                  <li class="list-inline-item">·</li>
+                  <li class="list-inline-item">
+                    <a href="#">Reply</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="media mt-3">
+              <a class="d-flex pr-3" href="#">
+                <img src="http://placehold.it/45x45" alt="">
+              </a>
+              <div class="media-body">
+                <h6 class="mt-0 mb-1"><a href="#">David Miller</a></h6>Next time for sure!
+                <ul class="list-inline mb-0">
+                  <li class="list-inline-item">
+                    <a href="#">Like</a>
+                  </li>
+                  <li class="list-inline-item">·</li>
+                  <li class="list-inline-item">
+                    <a href="#">Reply</a>
+                  </li>
+                </ul>
+              </div>
+            </div> 
+          </div>
+        <div class="card-footer small text-muted">Posted 32 mins ago</div> -->
+      </div>
+    </div> 
+    <!-- Card Columns Example Social Feed-->
+      <div class="col-lg-4">
+        <!-- Example Social Card-->
+        <div class="card mb-3 mr-4 ml-4">
+          <a href="#">
+            <img class="card-img-top img-fluid w-100" src="img/236.jpg" alt="">
+          </a>
+          <div class="card-body">
+            <h6 class="card-title mb-1"><a href="#">Improvisation</a></h6>
+            <p class="card-text small">Avec les actrices & acteurs de La Sauce Théâtre, et des amis imporvisateurs de la compagnie. Coach : Guillaume Malagnoux</p>
+          </div>
+          <!-- <hr class="my-0">
+          <div class="card-body py-2 small">
+            <a class="mr-3 d-inline-block" href="#">
+              <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+            <a class="mr-3 d-inline-block" href="#">
+              <i class="fa fa-fw fa-comment"></i>Comment</a>
+            <a class="d-inline-block" href="#">
+              <i class="fa fa-fw fa-share"></i>Share</a>
+          </div> -->
+         <!-- <hr class="my-0">
+          <div class="card-body small bg-faded">
+            <div class="media">
+              <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
+              <div class="media-body">
+                <h6 class="mt-0 mb-1"><a href="#">John Smith</a></h6>Very nice! I wish I was there! That looks amazing!
+                 <ul class="list-inline mb-0">
+                  <li class="list-inline-item">
+                    <a href="#">Like</a>
+                  </li>
+                  <li class="list-inline-item">·</li>
+                  <li class="list-inline-item">
+                    <a href="#">Reply</a>
+                  </li>
+                </ul> 
+              </div>
+            </div>
+             <div class="media mt-3">
+              <a class="d-flex pr-3" href="#">
+                <img src="http://placehold.it/45x45" alt="">
+              </a>
+              <div class="media-body">
+                <h6 class="mt-0 mb-1"><a href="#">David Miller</a></h6>Next time for sure!
+                <ul class="list-inline mb-0">
+                  <li class="list-inline-item">
+                    <a href="#">Like</a>
+                  </li>
+                  <li class="list-inline-item">·</li>
+                  <li class="list-inline-item">
+                    <a href="#">Reply</a>
+                  </li>
+                </ul>
+              </div>
+            </div> 
+          </div>
+        <div class="card-footer small text-muted">Posted 32 mins ago</div> -->
+      </div>
+    </div>
+  </div>
+  </div>
+>>>>>>> b9dd24e8642ba2aff3f0fac7fb5eb2da514a1486
 </div>
 {% endblock %}
