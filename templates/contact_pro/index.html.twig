@@ -34,7 +34,6 @@
                 <td>{{ contact_pro.newsletter ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('contact_pro_show', {'id': contact_pro.id}) }}">show</a>
-                    <a href="{{ path('contact_pro_edit', {'id': contact_pro.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
