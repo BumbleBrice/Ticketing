@@ -47,7 +47,7 @@ class ContactPro
     private $adresse;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $vousetes;
 
@@ -133,12 +133,12 @@ class ContactPro
         return $this;
     }
 
-    public function getVousetes(): ?array
+    public function getVousetes(): ?string
     {
         return $this->vousetes;
     }
 
-    public function setVousetes(array $vousetes): self
+    public function setVousetes(string $vousetes): self
     {
         $this->vousetes = $vousetes;
 

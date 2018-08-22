@@ -39,7 +39,12 @@ class ContactProController extends Controller
             $em->persist($contactPro);
             $em->flush();
 
-            return $this->redirectToRoute('contact_pro_index');
+            $this->addFlash(
+                'notice',
+                'votre message a bien été enregistrer'
+            );
+
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('contact_pro/new.html.twig', [
