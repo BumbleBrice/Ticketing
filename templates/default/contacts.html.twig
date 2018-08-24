@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<ul>
-    <li>
-        <a href="{{ path('contact_partenaire_new') }}">Partenaire</a>
-        <a href="{{ path('contact_pro_new') }}">Pro</a>
-        <a href="{{ path('contact_public_new') }}">Public</a>
-    </li>
-</ul>
+<div class="text-center">
+	<ul>
+	    <li>
+	        <h3><a class="badge badge-pill badge-dark" href="{{ path('contact_partenaire_new') }}">Partenaire</a></h3>
+	        <h3><a class="badge badge-pill badge-dark" href="{{ path('contact_pro_new') }}">Pro</a></h3>
+	        <h3><a class="badge badge-pill badge-dark" href="{{ path('contact_public_new') }}">Public</a></h3>
+	    </li>
+	</ul>
+</div>
 
 {% endblock %}

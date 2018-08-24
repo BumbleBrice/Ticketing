@@ -67,6 +67,7 @@ body.fixed-nav {
 #mainNav .navbar-collapse {
   overflow: auto;
   max-height: 75vh;
+  background-color: black;
 }
 
 #mainNav .navbar-collapse .navbar-nav .nav-item .nav-link {

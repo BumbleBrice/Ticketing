@@ -3,18 +3,18 @@
 {% block title %}Spectacle index{% endblock %}
 
 {% block body %}
-<div class="row mt-5">
+<div id="spectacleIndex" class="row mt-5 wrapper">
 <!-- Card Columns Example Social Feed-->
 {% for spectacle in spectacles %}
     <div class="col-lg-4">
         <div class="card mb-3 mr-4 ml-4">
             <a href="{{ path('spectacle_show', {'id': spectacle.id}) }}">
-                <img class="card-img-top img-fluid w-100" src="/img/260.jpg" alt="">
+                <img class="card-img-top img-fluid w-100" src="{{ spectacle.Picture }}" alt="">
             </a>
             <div class="card-body">
                 <h6 class="card-title mb-1"><a href="{{ path('spectacle_show', {'id': spectacle.id}) }}">{{ spectacle.nom }}</a></h6>
-                <p class="card-text small">{{ spectacle.description }}</p>
-            <div class="card-footer small text-muted">{{ spectacle.date ? spectacle.date|date('d-m-y H:i') : '' }}</div>
+                <p class="card-text small text-truncate">{{ spectacle.description }}</p>
+                <div class="card-footer small text-muted">Date : {{ spectacle.date ? spectacle.date|date('d-m-y') : '' }} à {{ spectacle.date ? spectacle.date|date('H') : '' }}h{{ spectacle.date ? spectacle.date|date('i') : '' }}</div>
                 <a href="{{ path('spectacle_show', {'id': spectacle.id}) }}" class="btn">En savoir plus</a>
             </div>
         </div>
