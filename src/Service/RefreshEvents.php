@@ -17,8 +17,11 @@ class RefreshEvents
             'include_closed'        => true,
             'include_without_sales' => true]);
 
+        $eventsIds = [];
+
         foreach($events->events as $event)
         {
+            $eventsIds[] = $event->id;
             $eventDetail = $weezevent->getEventDetails($event->id);
 
             $spectacle = $spectacleRepository->findOneBy(['weezevent_id' => $event->id]);
@@ -49,6 +52,13 @@ class RefreshEvents
                 
                 $em->flush();
             }
+        }
+
+        foreach($spectacleRepository->findAll() as $spectacle)
+        {
+            if(!in_array($spectacle->getWeezeventId(), $eventsIds))
+            $em->remove($spectacle);
+            $em->flush();
         }
     }
 }
