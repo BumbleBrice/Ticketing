@@ -27,6 +27,7 @@ class ContactProType extends AbstractType
                 ),
             ))
             ->add('newsletter')
+            ->add('message')
         ;
     }
 

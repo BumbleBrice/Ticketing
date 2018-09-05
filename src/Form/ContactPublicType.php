@@ -18,6 +18,7 @@ class ContactPublicType extends AbstractType
             ->add('telephone')
             ->add('sujet')
             ->add('newsletter')
+            ->add('message')
         ;
     }
 

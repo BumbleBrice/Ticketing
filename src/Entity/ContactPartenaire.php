@@ -46,6 +46,23 @@ class ContactPartenaire
      */
     private $newsletter;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $message;
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
+    
+    public function setMessage($message): self
+    {
+        $this->message = $message;
+    
+        return $this;
+    }
+
     public function getId()
     {
         return $this->id;
