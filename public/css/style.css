@@ -43,7 +43,7 @@ hr {
 #curtains h2 {
 	margin-top: 0;
 }
-@media all (min-width: 360px){
+@media all and (min-width: 360px){
 	#curtains h2 {
 		margin-top: 1.5rem;
 	}
@@ -57,6 +57,7 @@ nav button {
 @media all and (min-width: 361px){
 	.navbar-brand img {
 		width: 100px;
+	}
 }
 @media all and (min-width: 720px){
 	.navbar-brand img {
@@ -70,7 +71,6 @@ nav button {
 	.navDisplayNone {
 		display: inherit;
 	}
-	
 }
 #exampleAccordion img {
 	width: 25px;
@@ -86,7 +86,6 @@ nav button {
 }
 .card {
 	background-color: rgba(0, 0, 0, 0.4);
-
 }
 .card h6 {
 	font-family: 'Julius Sans One', sans-serif;
@@ -106,7 +105,6 @@ footer {
 	background-color: black;
 	color: white;
 }
-
 #flash-notice {
 	border: black 1px solid;
 	padding: 5em;
@@ -117,7 +115,6 @@ footer {
 	color: white;
 	background-color: rgba(0, 0, 0, 0.4);
 }
-
 /* Style all font awesome icons */
 footer .fa {
 	margin-top: 5px;
@@ -129,11 +126,9 @@ footer .fa {
     text-decoration: none;
     border-radius: 5px;
 }
-
 footer .fa:hover {
     opacity: 0.7;
-    background: white;
-    
+    background: white;  
 }
 footer .float-right {
 	margin-right: 30px;
@@ -159,11 +154,10 @@ footer .float-right {
 }
 @media all and (min-width: 720px){
 	.wrapper {
-		height: 70vh;
+		height: 62vh;
 		margin-top: 0;
 	}
 }
-
 .inner {
 	width: 103%;
     overflow: auto;
@@ -172,7 +166,6 @@ footer .float-right {
 @media all and (min-width: 361px){
 	.inner {
 	    padding-right: 70px;
-
 	}	
 }
 
@@ -191,7 +184,6 @@ footer .float-right {
 #accueil ul li::first-letter {
 	font-size: 1.8em;
 	font-family: 'Great Vibes', cursive;
-
 }
 
 /**** spectacle Index ****/
@@ -200,7 +192,6 @@ footer .float-right {
 	padding-left: 0;
 	padding-bottom: .25em;
 }
-
 
 /**** spectacle ****/
 
@@ -248,7 +239,6 @@ label::first-letter {
 .iChk {
 	display: none;
 }
-
 .lChk {
 	font-size: 1rem;
 	color: #fff;
@@ -260,7 +250,6 @@ label::first-letter {
 .iChk + .lChk::first-letter {
 	font-family: 'Great Vibes', cursive;
 }
-
 .lChk:before {
 	content: '';
 	display: inline-block;
@@ -274,7 +263,6 @@ label::first-letter {
 	border: 10px solid #fff;
 	transition: border .3s ease;
 }
-
 .iChk:checked + .lChk:before {
 	border-color: #fff;
 	border-width: 3px;
@@ -294,29 +282,12 @@ label::first-letter {
 	width: 100%;
 	height: 100%;
 }
-
 .wrapperBack {
 	height: 60vh;
 }
-
 .innerBack {
 	width: 103%;
     overflow: auto;
     height: 100%;
 }
-/*@media all and (min-width: 361px){
-	.innerBack {
-	    padding-right: 0px;
 
-	}	
-}
-*/
-
-/***** Widget Weezevent  *****/
-
-#widget_container  {
-	background-color: rgba(0, 0, 0, 0.4)!important;
-}
-#resendWrapper {²
-    background-color: red;
-}

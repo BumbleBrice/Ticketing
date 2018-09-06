@@ -29,12 +29,22 @@
             <span class="nav-link-text">Contact</span>
           </a>
         </li>
-        <li class="nav-item " data-toggle="tooltip" data-placement="right" title="Ouvrir le menu">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Ouvrir le menu">
           <a class="nav-link navDisplayNone" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
             <span class="nav-link-text">Masquer le menu</span>
           </a>
+        </li> 
+        {% if is_granted('ROLE_ADMIN') %}
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Content">
+          <a class="nav-link" href="{{ path('contacts') }}">
+            <img src="/img/icons/svg/backend.svg">
+            <span class="nav-link-text">Gestion Admin</span>
+          </a>
         </li>
+
+
+        {% endif %}
       </ul>
     </div>
   </nav>

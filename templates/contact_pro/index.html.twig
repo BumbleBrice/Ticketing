@@ -6,31 +6,28 @@
     <div id="contact" class="wrapper backOffice">
        <div class="innerBack">
             <h3 class="text-white text-center">Liste des message de professionnels</h3>
-                
-            <table class="table table-striped table-dark">
-                <thead>
-                    <tr>
-                        <th>Nom et prenom</th>
-                        <th>Email</th>
-                        <th>Telephone</th>
-                        <th>Organisme</th>
-                        <th>Qui est-ce?</th>
+            <table class="table-striped table-dark">
+                <thead >
+                    <tr >
+                        <th class="pl-3">Nom et prenom</th>
+                        <th class="pl-3">Email</th>
+                        <th class="pl-3">Telephone</th>
+                        <th class="pl-3">Organisme</th>
+                        <th class="pl-3">Qui est-ce?</th>
                     </tr>
                 </thead>
                 <tbody>
                 {% for contact_pro in contact_pros %}
-                    <tr>
-                        <td><a class="btn" href="{{ path('contact_pro_show', {'id': contact_pro.id}) }}">{{ contact_pro.nom }} {{ contact_pro.prenom }}</a></td>
-                        <td><a class="btn" href="{{ path('contact_pro_show', {'id': contact_pro.id}) }}">{{ contact_pro.email }}</a></td>
-                        <td><a class="btn" href="{{ path('contact_pro_show', {'id': contact_pro.id}) }}">{{ contact_pro.telephone }}</a></td>
-                        <td><a class="btn" href="{{ path('contact_pro_show', {'id': contact_pro.id}) }}">{{ contact_pro.organisme }}</a></td>
-                        <td><a class="btn" href="{{ path('contact_pro_show', {'id': contact_pro.id}) }}">{{ contact_pro.vousetes ? contact_pro.vousetes|join(', ') : '' }}</a></td>
-                        <td>
-                        </td>
-                    </tr>
+                <tr>
+                    <td><a class="btn text-left" href="{{ path('contact_pro_show', {'id': contact_pro.id}) }}">{{ contact_pro.nom }} {{ contact_pro.prenom }}</a></td>
+                    <td><a class="btn text-left" href="{{ path('contact_pro_show', {'id': contact_pro.id}) }}">{{ contact_pro.email }}</a></td>
+                    <td><a class="btn text-left" href="{{ path('contact_pro_show', {'id': contact_pro.id}) }}">{{ contact_pro.telephone }}</a></td>
+                    <td><a class="btn text-left" href="{{ path('contact_pro_show', {'id': contact_pro.id}) }}">{{ contact_pro.organisme }}</a></td>
+                    <td><a class="btn text-left" href="{{ path('contact_pro_show', {'id': contact_pro.id}) }}">{{ contact_pro.vousetes ? contact_pro.vousetes|join(', ') : '' }}</a></td>
+                </tr>
                 {% else %}
                     <tr>
-                        <td colspan="10">no records found</td>
+                        <td colspan="10">Pas de message pour l'instant</td>
                     </tr>
                 {% endfor %}
                 </tbody>
