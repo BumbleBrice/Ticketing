@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New ContactPartenaire{% endblock %}
+{% block title %}Contact Partenaire - Sur Vos Planches{% endblock %}
 
 {% block body %}
-    <h1>Create new ContactPartenaire</h1>
+    <div id="contact" class="mt-5 ">
+    	<div  class="text-center text-white mb-5">
+    		<h3 class="mt-3">Contactez nous</h3>
+    		<span>Si vous êtes partenaire, ...</span>
+    	</div>
+	
+    	<div class="formContact">
+    	 	{{ include('contact_partenaire/_form.html.twig') }}
+    	</div>
 
-    {{ include('contact_partenaire/_form.html.twig') }}
-
-    <a href="{{ path('contact_partenaire_index') }}">back to list</a>
+    </div>
 {% endblock %}

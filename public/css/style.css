@@ -1,11 +1,9 @@
 body {
-	font-family: 'Orbitron', sans-serif;
 	background-color: black;
-}
-.font {
 	font-family: 'Roboto', sans-serif;
 }
 h1 {
+	font-family: 'Orbitron', sans-serif;
     font-weight: normal;
 	color: white;
 	font-size: 1.3rem;
@@ -20,6 +18,7 @@ h1 {
 	}
 }
 h2 {
+	font-family: 'Orbitron', sans-serif;
 	text-align: right;
 	font-size: .8rem;
 	color: white;
@@ -58,12 +57,20 @@ nav button {
 @media all and (min-width: 361px){
 	.navbar-brand img {
 		width: 100px;
-	}
 }
 @media all and (min-width: 720px){
 	.navbar-brand img {
-		width: 100px;
+		width: 150px;
 	}
+}
+.navDisplayNone {
+	display: none;
+}
+@media all and (min-width: 720px) {
+	.navDisplayNone {
+		display: inherit;
+	}
+	
 }
 #exampleAccordion img {
 	width: 25px;
@@ -74,8 +81,12 @@ nav button {
 .fa-fw {
     color: white;
 }
+#spectacleIndex .card {
+	height: 420px;
+}
 .card {
 	background-color: rgba(0, 0, 0, 0.4);
+
 }
 .card h6 {
 	font-family: 'Julius Sans One', sans-serif;
@@ -86,18 +97,34 @@ nav button {
 .card p, .card div {
 	color: #6c757d;
 }
+#spectacleIndex .card p {
+	height: 79px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 footer {
 	background-color: black;
 	color: white;
 }
 
+#flash-notice {
+	border: black 1px solid;
+	padding: 5em;
+	border-radius: 1em;
+	position: absolute;
+	top: 45%;
+	left: 45%;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
 /* Style all font awesome icons */
 footer .fa {
 	margin-top: 5px;
-    padding: 10px;
-    font-size: 30px;
-    width: 50px;
-    height: 50px;
+    padding: 7px;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
@@ -108,6 +135,9 @@ footer .fa:hover {
     background: white;
     
 }
+footer .float-right {
+	margin-right: 30px;
+}
 
 /* Facebook */
 .fa-facebook {
@@ -115,16 +145,44 @@ footer .fa:hover {
     color: white;
 }
 .wrapper {
-	overflow:scroll;
-	height: 85vh;
+	margin-top: 2em;
+	height: 82vh;
+	width: 99%;
+	position: relative;
+   	overflow: inherit;
 }
+@media all and (min-width: 361px){
+	.wrapper {
+		width: 103%;
+	   	overflow: hidden;
+	}
+}
+@media all and (min-width: 720px){
+	.wrapper {
+		height: 70vh;
+		margin-top: 0;
+	}
+}
+
+.inner {
+	width: 103%;
+    overflow: auto;
+    height: 100%;
+}
+@media all and (min-width: 361px){
+	.inner {
+	    padding-right: 70px;
+
+	}	
+}
+
 
 /**** accueil ****/
 #accueil {
 	color: white;
 }
 #accueil h3 {
-	margin-top: 3em;
+	margin-top: 1em;
 	font-size: 1.6em;
 }
 #accueil ul li {
@@ -139,7 +197,8 @@ footer .fa:hover {
 /**** spectacle Index ****/
 
 #spectacleIndex .card-footer{
-	padding-left: .75rem;
+	padding-left: 0;
+	padding-bottom: .25em;
 }
 
 
@@ -154,4 +213,110 @@ footer .fa:hover {
 #SpectacleShow .btn {
 	background-color: transparent;
 	border-color: transparent;
+}
+
+/***  Contact  ***/
+#contact h3 {
+	font-size: 2rem;
+}
+.btn-dark {
+	background-color: black;
+}
+label {
+	color: white;
+}
+label::first-letter {
+	font-family: 'Great Vibes', cursive;
+	font-size: 1.8em;
+}
+.form-control {
+  background: none;
+  border: none;
+  border-bottom: dashed 2px white;
+  padding: .5em;
+  transition: .3s ease;
+  color: white;
+}
+
+.form-select {
+  background: rgba(0, 0, 0, 0.4);
+	border-bottom: none;
+}
+
+/***Contact partenaire***/
+
+.iChk {
+	display: none;
+}
+
+.lChk {
+	font-size: 1rem;
+	color: #fff;
+	display: inline-block;
+	/*padding: 0 0 0 1em;*/
+	cursor: pointer;
+	font-family: 'Roboto', sans-serif;
+}
+.iChk + .lChk::first-letter {
+	font-family: 'Great Vibes', cursive;
+}
+
+.lChk:before {
+	content: '';
+	display: inline-block;
+	background: black;
+	height: 20px;
+	width: 20px;
+	margin-right: 10px;
+	border-radius: 80%;
+	box-shadow: 0px 1px 0 0 rgba(0, 0, 0, .2);
+	box-sizing: border-box;
+	border: 10px solid #fff;
+	transition: border .3s ease;
+}
+
+.iChk:checked + .lChk:before {
+	border-color: #fff;
+	border-width: 3px;
+}
+.iChk + .lChk {
+	transition: color .7s ease;
+}
+.iChk:checked + .lChk {
+	color: grey;
+}
+
+/**** Backoffice  ****/
+
+.backOffice a {
+	display: block;
+	color: white;
+	width: 100%;
+	height: 100%;
+}
+
+.wrapperBack {
+	height: 60vh;
+}
+
+.innerBack {
+	width: 103%;
+    overflow: auto;
+    height: 100%;
+}
+/*@media all and (min-width: 361px){
+	.innerBack {
+	    padding-right: 0px;
+
+	}	
+}
+*/
+
+/***** Widget Weezevent  *****/
+
+#widget_container  {
+	background-color: rgba(0, 0, 0, 0.4)!important;
+}
+#resendWrapper {²
+    background-color: red;
 }

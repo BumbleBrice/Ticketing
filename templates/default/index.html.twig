@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello Test!{% endblock %}
+{% block title %}Sur Vos Planches!{% endblock %}
 
 
 {% block body %}
-	<div id="accueil" class="font wrapper">
-		<h3 class="text-justify">Nous avons cette envie de partager le rire, le rêve et le merveilleux en apportant dans votre commune des spectacles de qualité:</h3>
+	<div id="accueil" class="wrapper">
+		<div class="inner">
+			<h3 class="text-justify">Nous avons cette envie de partager le rire, le rêve et le merveilleux en apportant dans votre commune des spectacles de qualité:</h3>
 		<h4>
 			<ul>
 				<li>Pièces de théâtre</li>
@@ -29,9 +30,10 @@
 				Venez vous évadez près de chez vous !
 			</p>
 		</div>
+		</div>
 	</div>
     {% for message in app.flashes('notice') %}
-        <div class="flash-notice">
+        <div id="flash-notice">
             {{ message }}
         </div>
     {% endfor %}

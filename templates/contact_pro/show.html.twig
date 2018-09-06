@@ -3,47 +3,36 @@
 {% block title %}ContactPro{% endblock %}
 
 {% block body %}
-    <h1>ContactPro</h1>
+    <div id="contact" class="wrapper wrapperBack backOffice">
+        <div class="innerBack text-white">
+            <h4>Message de : {{ contact_pro.nom }} {{ contact_pro.prenom }}, {{ contact_pro.vousetes ? contact_pro.vousetes|join(', ') : '' }}</h4>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Email</th>
+                        <td> : {{ contact_pro.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Telephone</th>
+                        <td> : {{ contact_pro.telephone }}</td>
+                    </tr>
+                    <tr>
+                        <th>Adresse</th>
+                        <td> : {{ contact_pro.adresse }}</td>
+                    </tr>
+                    <tr>
+                        <th>Organisme</th>
+                        <td> : {{ contact_pro.organisme }}</td>
+                    </tr>
+                    <tr>
+                        <th>Message</th>
+                        <td> : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse congue, dui eget mattis ullamcorper, dui risus vulputate urna, in posuere tellus sem blandit erat. Nulla varius purus eu sapien pharetra, vel lobortis magna placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi gravida leo non vulputate viverra. Suspendisse ante libero, efficitur vitae porta at, ultricies ut ante. Fusce varius ligula eget ultricies suscipit. In feugiat, risus eu hendrerit consequat, tellus metus imperdiet leo, non iaculis velit dui et elit. Fusce aliquam ac tellus nec gravida.
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ contact_pro.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ contact_pro.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ contact_pro.prenom }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ contact_pro.email }}</td>
-            </tr>
-            <tr>
-                <th>Telephone</th>
-                <td>{{ contact_pro.telephone }}</td>
-            </tr>
-            <tr>
-                <th>Organisme</th>
-                <td>{{ contact_pro.organisme }}</td>
-            </tr>
-            <tr>
-                <th>Adresse</th>
-                <td>{{ contact_pro.adresse }}</td>
-            </tr>
-            <tr>
-                <th>Vous etes</th>
-                <td>{{ contact_pro.vousetes ? contact_pro.vousetes|join(', ') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Newsletter</th>
-                <td>{{ contact_pro.newsletter ? 'Yes' : 'No' }}</td>
-            </tr>
-        </tbody>
-    </table>
+                        In nisi quam, faucibus eu metus et, tristique iaculis diam. Integer sit amet fermentum urna. Sed dignissim facilisis tortor. Quisque eu magna eget massa suscipit gravida. Nunc sodales ultrices tellus ut feugiat. Ut ex sem, vulputate et mattis sed, efficitur dictum magna. Aenean condimentum, augue sed maximus hendrerit, lectus diam varius ligula, auctor bibendum nunc felis et massa. Nullam dignissim elementum quam, et viverra sem gravida at. Etiam gravida consectetur libero eget laoreet. Nam faucibus ex sed est malesuada ornare. Aliquam sodales, tortor eu tincidunt elementum, lorem purus scelerisque nunc, et convallis nisi leo eu libero. Proin diam dui, porttitor ac dolor a, facilisis semper sapien.</td>
+                    </tr>
+                </tbody>
+            </table>       
+        </div>       
+    </div>
     {{ include('contact_pro/_delete_form.html.twig') }}
 {% endblock %}

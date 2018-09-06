@@ -1,14 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="text-center">
-	<ul>
-	    <li>
-	        <h3><a class="badge badge-pill badge-dark" href="{{ path('contact_partenaire_new') }}">Partenaire</a></h3>
-	        <h3><a class="badge badge-pill badge-dark" href="{{ path('contact_pro_new') }}">Pro</a></h3>
-	        <h3><a class="badge badge-pill badge-dark" href="{{ path('contact_public_new') }}">Public</a></h3>
-	    </li>
-	</ul>
+<div class="row text-center mt-5">
+	<div class="col ">
+		<div class="card" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title text-white">Partenaire</h5>
+		    <a href="{{ path('contact_partenaire_new') }}" class="btn btn-secondary">Nous contactez</a>
+		  </div>
+		</div>
+	</div>
+	<div class="col ">
+		<div class="card" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title text-white">Professionnel</h5>
+		    <a href="{{ path('contact_pro_new') }}" class="btn btn-secondary">Nous contactez</a>
+		  </div>
+		</div>
+	</div>
+	<div class="col ">
+		<div class="card" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title text-white">Public</h5>
+		    <a href="{{ path('contact_public_new') }}" class="btn btn-secondary">Nous contactez</a>
+		  </div>
+		</div>
+	</div>
 </div>
 
 {% endblock %}
