@@ -62,11 +62,19 @@ class DefaultController extends Controller
      * @Route("/gestion", name="admin")
      * @Security("is_granted('ROLE_ADMIN')")
      */
-    public function admin(Request $request, UserPasswordEncoderInterface $encoder, ContactPartenaireRepository $ContactPartenaireRepository, ContactPublicRepository $ContactPublicRepository, ContactProRepository $ContactProRepository)
+    public function admin(Request $request,
+    UserPasswordEncoderInterface $encoder,
+    ContactPartenaireRepository $ContactPartenaireRepository,
+    ContactPublicRepository $ContactPublicRepository,
+    ContactProRepository $ContactProRepository)
     {
-        $contactPro = $ContactProRepository->findBy(['status' => '']);
-        $contactPublic = $ContactPublicRepository->findBy(['status' => '']);
-        $contactPartenaire = $ContactPartenaireRepository->findBy(['status' => '']);
+        $contactPro = $ContactProRepository->findBy(['status' => null]);
+        $contactPublic = $ContactPublicRepository->findBy(['status' => null]);
+        $contactPartenaire = $ContactPartenaireRepository->findBy(['status' => null]); 
+
+        dump($contactPro);
+        dump($contactPublic);
+        dump($contactPartenaire);
 
         $user = $this->getUser();
 
