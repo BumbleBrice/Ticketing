@@ -153,7 +153,7 @@ footer .float-right {
 }
 @media all and (min-width: 361px){
 	.wrapper {
-		width: 103%;
+		width: 100%;
 	   	overflow: hidden;
 	}
 }
