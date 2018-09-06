@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New ContactPro{% endblock %}
+{% block title %}Contact professionnel - Sur Vos Planches{% endblock %}
 
 {% block body %}
-    <h1>Create new ContactPro</h1>
+      <div id="contact" class="mt-5 ">
+    	<div  class="text-center text-white">
+    		<h3 class="mt-1">Contactez nous</h3>
+    		<span>Si vous êtes un professionnel ...</span>
+    	</div>
+	
+	<div class="formContact">
+       {{ include('contact_pro/_form.html.twig') }}
+	</div>
 
-    {{ include('contact_pro/_form.html.twig') }}
-
-    <a href="{{ path('contact_pro_index') }}">back to list</a>
 {% endblock %}
