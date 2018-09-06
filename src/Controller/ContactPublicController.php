@@ -39,7 +39,12 @@ class ContactPublicController extends Controller
             $em->persist($contactPublic);
             $em->flush();
 
-            return $this->redirectToRoute('contact_public_index');
+            $this->addFlash(
+                'notice',
+                'votre message a bien été enregistrer'
+            );
+
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('contact_public/new.html.twig', [

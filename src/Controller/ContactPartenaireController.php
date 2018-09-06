@@ -39,7 +39,12 @@ class ContactPartenaireController extends Controller
             $em->persist($contactPartenaire);
             $em->flush();
 
-            return $this->redirectToRoute('contact_partenaire_index');
+            $this->addFlash(
+                'notice',
+                'votre message a bien été enregistrer'
+            );
+
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('contact_partenaire/new.html.twig', [
