@@ -64,9 +64,9 @@ class DefaultController extends Controller
      */
     public function admin(Request $request, UserPasswordEncoderInterface $encoder, ContactPartenaireRepository $ContactPartenaireRepository, ContactPublicRepository $ContactPublicRepository, ContactProRepository $ContactProRepository)
     {
-        $contactPro = $ContactProRepository->findBy(['status' => 'vue']);
-        $contactPublic = $ContactPublicRepository->findBy(['status' => 'vue']);
-        $contactPartenaire = $ContactPartenaireRepository->findBy(['status' => 'vue']);
+        $contactPro = $ContactProRepository->findBy(['status' => '']);
+        $contactPublic = $ContactPublicRepository->findBy(['status' => '']);
+        $contactPartenaire = $ContactPartenaireRepository->findBy(['status' => '']);
 
         $user = $this->getUser();
 
