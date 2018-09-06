@@ -21,8 +21,8 @@ class ContactPartenaireType extends AbstractType
                 'choices'  => array(
                     'Partenariat en cours' => 'Partenariat en cours',
                     'Proposer un partenariat' => 'Proposer un partenariat',
-                    'Autre' => 'Autre',
-                ),
+                    'Autre' => 'Autre'
+                )
             ))
             ->add('newsletter')
             ->add('message')

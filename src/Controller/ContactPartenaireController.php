@@ -54,6 +54,12 @@ class ContactPartenaireController extends Controller
      */
     public function show(ContactPartenaire $contactPartenaire): Response
     {
+        $contactPartenaire->setStatus('vue');
+        
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($contactPartenaire);
+        $em->flush();
+
         return $this->render('contact_partenaire/show.html.twig', ['contact_partenaire' => $contactPartenaire]);
     }
 

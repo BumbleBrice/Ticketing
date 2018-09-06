@@ -1,0 +1,11 @@
+{{ vues }}
+
+
+{{ form_start(form, {'attr': {'class': 'test'}}) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.NewPassword, {'attr': {'class': 'unpute'}}) }}
+
+    <button class="btn">{{ button_label|default('Changer') }}</button>
+
+{{ form_end(form) }}

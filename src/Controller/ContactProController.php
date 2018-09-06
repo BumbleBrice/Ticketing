@@ -59,6 +59,12 @@ class ContactProController extends Controller
      */
     public function show(ContactPro $contactPro): Response
     {
+        $contactPro->setStatus('vue');
+        
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($contactPro);
+        $em->flush();
+
         return $this->render('contact_pro/show.html.twig', ['contact_pro' => $contactPro]);
     }
 

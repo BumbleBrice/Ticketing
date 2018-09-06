@@ -54,6 +54,12 @@ class ContactPublicController extends Controller
      */
     public function show(ContactPublic $contactPublic): Response
     {
+        $contactPublic->setStatus('vue');
+        
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($contactPublic);
+        $em->flush();
+
         return $this->render('contact_public/show.html.twig', ['contact_public' => $contactPublic]);
     }
 

@@ -24,7 +24,7 @@ class ContactProType extends AbstractType
                     'Artiste ou Producteur' => 'Artiste ou Producteur',
                     'Diffuseur ou Gestionnaire de salle' => 'Diffuseur ou Gestionnaire de salle',
                     'Intermitent du spectacle' => 'Intermitent du spectacle',
-                ),
+                )
             ))
             ->add('newsletter')
             ->add('message')

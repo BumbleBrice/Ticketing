@@ -37,7 +37,7 @@ class ContactPartenaire
     private $email;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $sujet;
 
@@ -50,6 +50,23 @@ class ContactPartenaire
      * @ORM\Column(type="text")
      */
     private $message;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $status;
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+    
+    public function setStatus($status): self
+    {
+        $this->status = $status;
+    
+        return $this;
+    }
 
     public function getMessage(): ?string
     {
@@ -116,12 +133,12 @@ class ContactPartenaire
         return $this;
     }
 
-    public function getSujet(): ?array
+    public function getSujet(): ?string
     {
         return $this->sujet;
     }
 
-    public function setSujet(array $sujet): self
+    public function setSujet(string $sujet): self
     {
         $this->sujet = $sujet;
 

@@ -17,11 +17,18 @@ class RefreshEvents
             'include_closed'        => true,
             'include_without_sales' => true]);
 
+        dump($weezevent->getTickets('364032'));
+
+        dump($weezevent->getParticipants(['id_event[]' => '364032']));
+
+        dump($weezevent->getTickets('364032'));
+
         $eventsIds = [];
 
         foreach($events->events as $event)
         {
             $eventsIds[] = $event->id;
+            
             $eventDetail = $weezevent->getEventDetails($event->id);
 
             $spectacle = $spectacleRepository->findOneBy(['weezevent_id' => $event->id]);

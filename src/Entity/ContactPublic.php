@@ -51,6 +51,23 @@ class ContactPublic
      */
     private $message;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $status;
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+    
+    public function setStatus($status): self
+    {
+        $this->status = $status;
+    
+        return $this;
+    }
+
     public function getMessage(): ?string
     {
         return $this->message;
