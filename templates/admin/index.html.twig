@@ -1,4 +1,44 @@
-{{ vues }}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="row text-center mt-5">
+	<div class="col ">
+		<div class="card" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title text-white">Voir les messages</h5>
+		    <a href="{{ path('contact_partenaire_new') }}" class="">
+				<button type="button" class="btn btn-dark">
+				  Profile <span class="badge badge-light">{{ vues_pro }}</span>
+				</button>
+		    </a>
+		  </div>
+		</div>
+	</div>
+	<div class="col ">
+		<div class="card" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title text-white">Voir les messages</h5>
+		    <a href="{{ path('contact_partenaire_new') }}" class="">
+				<button type="button" class="btn btn-dark">
+				  Profile <span class="badge badge-light">{{ vues_public }}</span>
+				</button>
+		    </a>
+		  </div>
+		</div>
+	</div>
+	<div class="col ">
+		<div class="card" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title text-white">Voir les messages</h5>
+		    <a href="{{ path('contact_partenaire_new') }}" class="">
+				<button type="button" class="btn btn-dark">
+				  Profile <span class="badge badge-light">{{ vues_partenaire }}</span>
+				</button>
+		    </a>
+		  </div>
+		</div>
+	</div>
+</div>
 
 
 {{ form_start(form, {'attr': {'class': 'test'}}) }}
@@ -9,3 +49,4 @@
     <button class="btn">{{ button_label|default('Changer') }}</button>
 
 {{ form_end(form) }}
+{% endblock %}

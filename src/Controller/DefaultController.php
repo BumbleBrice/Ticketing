@@ -81,7 +81,9 @@ class DefaultController extends Controller
         }
 
         return $this->render('admin/index.html.twig', [
-            'vues' => count($contactPro) + count($contactPublic) + count($contactPartenaire),
+            'vues_pro' => count($contactPro),
+            'vues_public' => count($contactPublic),
+            'vues_partenaire' => count($contactPartenaire),
             'form' => $form->createView()
         ]);
     }
