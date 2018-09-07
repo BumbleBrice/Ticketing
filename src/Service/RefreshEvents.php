@@ -17,11 +17,8 @@ class RefreshEvents
             'include_closed'        => true,
             'include_without_sales' => true]);
 
-        dump($weezevent->getTickets('364032'));
-
-        dump($weezevent->getParticipants(['id_event[]' => '364032']));
-
-        dump($weezevent->getTickets('364032'));
+        dump($events);
+        dump($weezevent->getEventDetails('374379'));
 
         $eventsIds = [];
 
@@ -51,6 +48,7 @@ class RefreshEvents
                 $spectacle->setWeezeventId($event->id);
                 $spectacle->setLastUpdate($eventDetail->last_update);
                 $spectacle->setPicture($eventDetail->events->image);
+                $spectacle->setSiteURL($eventDetail->events->site_url);
 
                 if(isset($new_spectacle))
                 {

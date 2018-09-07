@@ -51,6 +51,23 @@ class Spectacle
      */
     private $Picture;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $siteURL;
+
+    public function getSiteURL(): ?string
+    {
+        return $this->siteURL;
+    }
+    
+    public function setSiteURL($siteURL): self
+    {
+        $this->siteURL = $siteURL;
+    
+        return $this;
+    }
+
     public function getId()
     {
         return $this->id;
