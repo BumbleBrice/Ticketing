@@ -1,39 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Sur Vos Planches!{% endblock %}
+{% block head %}<meta name="description" content="description de la page">{% endblock %}
 
 
 {% block body %}
-	<div id="accueil" class="wrapper">
-		<div class="inner">
-			<h3 class="text-justify">
-				Nous avons cette envie de partager le rire, le rêve et le merveilleux en apportant dans votre commune des spectacles de qualité:
-			</h3>
-		<h4>
-			<ul>
-				<li>Pièces de théâtre</li>
-				<li>One man shows</li>
-				<li>Improvisations</li>
-				<li>Danse moderne</li>
-				<li>Spectacles pour enfants</li>
-			</ul>
-		</h4>
-		<div>
-			<p>
-				Rencontrez ces personnages qui nous ressemblent tant confrontés à des situations cocasses et inextricables.
-			</p>
-			<p>
-				Partez à la rencontre de mondes imaginaires, envolez-vous avec des danseurs talentueux qui se fondent dans l'ombre et la lumière de décors changeants.
-			</p>
-			<p>
-				Allumez des étincelles dans les yeux de vos enfants en suivant des contes fabuleux.
-			</p>
-			<p>
-				<h4 class="text-center">Venez vous évadez près de chez vous !</h4>
-			</p>
-		</div>
-		</div>
+	<h3 class="text-justify">
+		Nous avons cette envie de partager le rire, le rêve et le merveilleux en apportant dans votre commune des spectacles de qualité:
+	</h3>
+	<h4>
+		<ul class="firstLetter">
+			<li>Pièces de théâtre</li>
+			<li>One man shows</li>
+			<li>Improvisations</li>
+			<li>Danse moderne</li>
+			<li>Spectacles pour enfants</li>
+		</ul>
+	</h4>
+	<div>
+		<p>
+			Rencontrez ces personnages qui nous ressemblent tant confrontés à des situations cocasses et inextricables.
+		</p>
+		<p>
+			Partez à la rencontre de mondes imaginaires, envolez-vous avec des danseurs talentueux qui se fondent dans l'ombre et la lumière de décors changeants.
+		</p>
+		<p>
+			Allumez des étincelles dans les yeux de vos enfants en suivant des contes fabuleux.
+		</p>
+		<p>
+			<h4 class="text-center">Venez vous évadez près de chez vous !</h4>
+		</p>
 	</div>
+
     {% for message in app.flashes('notice') %}
         <div id="flash-notice">
             {{ message }}

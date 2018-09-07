@@ -1,120 +1,110 @@
 body {
-	background-color: black;
 	font-family: 'Roboto', sans-serif;
-}
-h1 {
-	font-family: 'Orbitron', sans-serif;
-    font-weight: normal;
-	color: white;
-	font-size: 1.3rem;
-	margin-bottom: 0;
-	margin-top: .5rem;
-	text-align: right;
-}
-@media all and (min-width: 361px) {
-	h1 {
-		font-size: 5rem;
-		text-align: center;
-	}
-}
-h2 {
-	font-family: 'Orbitron', sans-serif;
-	text-align: right;
-	font-size: .8rem;
-	color: white;
-    
-}
-@media all and (min-width: 361px) {
-	h2 {
-		font-size: 3rem;
-		text-align: center;
-	}
-}
-hr {
-	display: block;
-	clear: both;
-	height: 0;
-	margin: 0 auto;
-	padding: 0;
-	font-family: arial;
-	width: 85%;
-	border-top: 3px solid white;
-} 
-#curtains h2 {
-	margin-top: 0;
-}
-@media all and (min-width: 360px){
-	#curtains h2 {
-		margin-top: 1.5rem;
-	}
-}
-nav button {
-	margin-top: 2.52rem;
+	background-color: #000;
+	color: white
 }
 .navbar-brand img {
 	width: 50px;
 }
-@media all and (min-width: 361px){
-	.navbar-brand img {
-		width: 100px;
-	}
+h1, h2 {
+	font-family: 'Orbitron', sans-serif;
 }
-@media all and (min-width: 720px){
-	.navbar-brand img {
-		width: 150px;
-	}
+h1 {
+	font-size: 135%;
 }
-.navDisplayNone {
-	display: none;
-}
-@media all and (min-width: 720px) {
-	.navDisplayNone {
-		display: inherit;
-	}
-}
-#exampleAccordion img {
-	width: 25px;
+h2 {
+	font-size: 85%;
 }
 #curtains {
 	background: black url(../img/rideaux1.jpg) no-repeat top;
 }
-.fa-fw {
-    color: white;
+nav button {
+	margin-top: 2.52rem;
 }
-#spectacleIndex .card {
-	height: 420px;
+#exampleAccordion img {
+	width: 25px;
 }
-.card {
-	background-color: rgba(0, 0, 0, 0.4);
-}
-.card h6 {
-	font-family: 'Julius Sans One', sans-serif;
-}
-.card a{
-	color: white;
-}
-.card p, .card div {
-	color: #6c757d;
-}
-#spectacleIndex .card p {
-	height: 79px;
+.wrapper {
+	height: 80vh;
+	margin-top: 7em;
 	overflow: hidden;
-	text-overflow: ellipsis;
 }
-footer {
-	background-color: black;
-	color: white;
+.inner {
+	overflow: auto;
+    height: 95%;
 }
-#flash-notice {
-	border: black 1px solid;
-	padding: 5em;
-	border-radius: 1em;
-	position: absolute;
-	top: 45%;
-	left: 45%;
-	color: white;
-	background-color: rgba(0, 0, 0, 0.4);
+.firstLetter li {
+		list-style-type: none; 
 }
+
+.firstLetter li::first-letter{
+	letter-spacing: 3px;
+	font-family: 'Great Vibes', cursive;
+	font-size: 150%;
+}
+
+
+
+/**** SPECTACLE ****/
+
+.profile-card-5{
+    margin-top:20px;
+    background-color: rgba(0,0,0,0.63);
+}
+.profile-card-5 .btn{
+    border-radius:2px;
+    text-transform:uppercase;
+    font-size:12px;
+    padding:7px 20px;
+}
+.profile-card-5 .card-img-block {
+    width: 91%;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+    
+}
+.profile-card-5 .card-img-block img{
+    border-radius:5px;
+    box-shadow:0 0 10px rgba(200,200,200,0.63);
+}
+.profile-card-5 h5{
+    color:rgba(140,0,0,0.7);
+    font-weight:600;
+}
+.profile-card-5 p{
+    font-size:14px;
+    font-weight:300;
+}
+.profile-card-5 .btn-primary{
+    background-color:rgba(140,0,0,0.7);
+    border-color: white;
+}
+
+/**** Spectacle Show ****/
+
+
+article{
+    background-color: rgba(0,0,0,0.65);
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+figure img{
+    width: 100%;
+    height: 100%;
+}
+.glyphicon-folder-open,
+.glyphicon-user,
+.glyphicon-calendar,
+.glyphicon-eye-open,
+.glyphicon-comment{
+    padding: 5px;
+}
+
+
+
+
 /* Style all font awesome icons */
 footer .fa {
 	margin-top: 5px;
@@ -139,103 +129,34 @@ footer .float-right {
     background: #3B5998;
     color: white;
 }
-.wrapper {
-	margin-top: 2em;
-	height: 82vh;
-	width: 99%;
-	position: relative;
-   	overflow: inherit;
-}
-@media all and (min-width: 361px){
-	.wrapper {
-		width: 100%;
-	   	overflow: hidden;
-	}
-}
-@media all and (min-width: 720px){
-	.wrapper {
-		height: 62vh;
-		margin-top: 0;
-	}
-}
-.inner {
-	width: 103%;
-    overflow: auto;
-    height: 100%;
-}
-@media all and (min-width: 361px){
-	.inner {
-	    padding-right: 70px;
-	}	
-}
 
+/*
 
-/**** accueil ****/
-#accueil {
+	font-family: 'Orbitron', sans-serif;
+	font-family: 'Julius Sans One', sans-serif;
+#curtains {
+	background: black url(../img/rideaux1.jpg) no-repeat top;
+
+}
+#flash-notice {
+	border: black 1px solid;
+	padding: 5em;
+	border-radius: 1em;
+	position: absolute;
+	top: 45%;
+	left: 45%;
 	color: white;
-}
-#accueil h3 {
-	margin-top: 1em;
-	font-size: 1.6em;
-}
-#accueil ul li {
-	list-style-type: none; 
-}
-#accueil ul li::first-letter {
-	font-size: 1.8em;
-	font-family: 'Great Vibes', cursive;
-}
-
-/**** spectacle Index ****/
-
-#spectacleIndex .card-footer{
-	padding-left: 0;
-	padding-bottom: .25em;
-}
-
-/**** spectacle ****/
-
-#SpectacleShow h2 {
-	font-size: 150%;
-}
-#SpectacleShow h2::first-letter {
-	text-transform: uppercase;
-}
-#SpectacleShow .btn {
-	background-color: transparent;
-	border-color: transparent;
-}
-
-/***  Contact  ***/
-#contact h3 {
-	font-size: 2rem;
-}
-.btn-dark {
-	background-color: black;
-}
-label {
-	color: white;
-}
-label::first-letter {
-	font-family: 'Great Vibes', cursive;
-	font-size: 1.8em;
-}
-.form-control {
-  background: none;
-  border: none;
-  border-bottom: dashed 2px white;
-  padding: .5em;
-  transition: .3s ease;
-  color: white;
-}
-
-.form-select {
-  background: rgba(0, 0, 0, 0.4);
-	border-bottom: none;
-}
-
-/***Contact partenaire***/
-
+	background-color: rgba(0, 0, 0, 0.4);
+hr {
+	display: block;
+	clear: both;
+	height: 0;
+	margin: 0 auto;
+	padding: 0;
+	font-family: arial;
+	width: 85%;
+	border-top: 3px solid white;
+} 
 .iChk {
 	display: none;
 }
@@ -243,7 +164,7 @@ label::first-letter {
 	font-size: 1rem;
 	color: #fff;
 	display: inline-block;
-	/*padding: 0 0 0 1em;*/
+	padding: 0 0 0 1em;
 	cursor: pointer;
 	font-family: 'Roboto', sans-serif;
 }
@@ -274,20 +195,5 @@ label::first-letter {
 	color: grey;
 }
 
-/**** Backoffice  ****/
 
-.backOffice a {
-	display: block;
-	color: white;
-	width: 100%;
-	height: 100%;
-}
-.wrapperBack {
-	height: 60vh;
-}
-.innerBack {
-	width: 103%;
-    overflow: auto;
-    height: 100%;
-}
-
+*/

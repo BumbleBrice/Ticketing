@@ -1,10 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ spectacle.nom }}{% endblock %}
+{% block title %}{{ spectacle.nom }} - Sur Vos Planches{% endblock %}
 
 {% block body %}
 
-   <div class="container">
+
+        <article class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <figure>
+                        <img src="{{ spectacle.Picture }}" alt="{{ spectacle.nom }}">
+                    </figure>
+                </div>
+                <div class="col-sm-6 col-md-8">
+                    {# <span class="label label-default pull-right"><i class="glyphicon glyphicon-comment"></i>50</span> #}
+                    <h4>{{ spectacle.nom }}</h4>
+                    <p>
+                        {{ spectacle.description }}
+                    </p>
+                    <section>
+                    {#  <i class="glyphicon glyphicon-folder-open"></i>Bootstrap
+                        <i class="glyphicon glyphicon-user"></i>RaymondDragon #}
+                        <i class="glyphicon glyphicon-calendar"></i>Le {{ spectacle.date ? spectacle.date|date('d-m-y') : '' }} à {{ spectacle.date ? spectacle.date|date('H') : '' }}h{{ spectacle.date ? spectacle.date|date('i') : '' }}
+                        <i class="glyphicon glyphicon-eye-open"></i>10000
+                    </section>
+                </div>
+            </div>
+        </article>
+        <iframe src="https://www.weezevent.com/widget_billeterie.php?id_evenement={{ spectacle.weezeventId }}&amp;lg_billetterie=1&amp;code=27455&amp;resize=1&amp;width_auto=1&amp;color_primary=252525&amp;v=2" resize="1" hidepoweredby="0" scrolling="auto" style="box-sizing: initial;" width="100%" height="480px" frameborder="0"></iframe>
+
+{#    <div class="container">
         <div id="SpectacleShow" class="row mt-5 mb-3">
             <div class="col-lg-4">
                 <img class="img-thumbnail" src="{{ spectacle.Picture }}">
@@ -18,7 +43,6 @@
                 
             </div>
         </div>
-        <iframe src="https://www.weezevent.com/widget_billeterie.php?id_evenement={{ spectacle.weezeventId }}&amp;lg_billetterie=1&amp;code=27455&amp;resize=1&amp;width_auto=1&amp;color_primary=252525&amp;v=2" resize="1" hidepoweredby="0" scrolling="auto" style="box-sizing: initial;" width="100%" height="480px" frameborder="0"></iframe>
-   </div>
+   </div> #}
 
 {% endblock %}
