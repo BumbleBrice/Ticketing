@@ -117,7 +117,16 @@ figure img{
 
 
 /**** Contact ****/
+.btn-contact .col{
+    margin-top: 2.5em;
+  }
 
+
+@media (min-width: 992px) {
+  .btn-contact {
+    margin-top: 2em;
+  }
+}
 
 .button {
   --offset: 10px;
