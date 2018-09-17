@@ -1,31 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="row text-center mt-5">
-	<div class="col ">
-		<div class="card" style="width: 18rem;">
-		  <div class="card-body">
-		    <h5 class="card-title text-white">Pour les partenariat</h5>
-		    <a href="{{ path('contact_partenaire_new') }}" class="btn btn-light text-dark">Nous contactez</a>
-		  </div>
-		</div>
+<div class="container text-center bm-3">
+	<div class="pb-5 mt-5">
+		<h3>Choisissez votre formulaire</h3>
 	</div>
-	<div class="col ">
-		<div class="card" style="width: 18rem;">
-		  <div class="card-body">
-		    <h5 class="card-title text-white">Pour les professionnels</h5>
-		    <a href="{{ path('contact_pro_new') }}" class="btn btn-light text-dark">Nous contactez</a>
-		  </div>
+	<div class="row mt-5">
+		<div class="col">
+			<button class="button mx-auto">
+				<a class="btn text-light" href="{{ path('contact_partenaire_new') }}">Partenaire</a>
+				<div class="button__horizontal"></div>
+				<div class="button__vertical"></div>
+			</button>
 		</div>
-	</div>
-	<div class="col ">
-		<div class="card" style="width: 18rem;">
-		  <div class="card-body">
-		    <h5 class="card-title text-white">Pour le public</h5>
-		    <a href="{{ path('contact_public_new') }}" class="btn btn-light text-dark">Nous contactez</a>
-		  </div>
+		<div class="col">
+			<button class="button mx-auto">
+				<a class="btn text-light" href="{{ path('contact_pro_new') }}">Professionnels</a>
+				<div class="button__horizontal"></div>
+				<div class="button__vertical"></div>
+			</button>
+		</div>
+		<div class="col">
+			<button class="button mx-auto">
+				<a class="btn text-light" href="{{ path('contact_public_new') }}">Public</a>
+				<div class="button__horizontal"></div>
+				<div class="button__vertical"></div>
+			</button>
 		</div>
 	</div>
 </div>
-
 {% endblock %}
