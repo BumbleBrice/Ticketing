@@ -440,11 +440,6 @@ footer.sticky-footer {
   background-color: black;
 }
 
-@media (min-width: 992px) {
-  footer.sticky-footer {
-    margin-left: 150px;
-  }
-}
 
 @media (min-width: 992px) {
   body.sidenav-toggled footer.sticky-footer {

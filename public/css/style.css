@@ -6,6 +6,14 @@ body {
 .navbar-brand img {
 	width: 50px;
 }
+@media (min-width: 992px){
+  .navbar-brand img {
+    width: 150px;
+  }
+}
+.bg-black {
+  background-color: #000;
+}
 h1, h2 {
 	font-family: 'Orbitron', sans-serif;
 }
@@ -28,6 +36,9 @@ h2 {
 		margin-left: 250px;
 	}
 }
+p {
+  margin-bottom: 0.65em;
+}
 #curtains {
 	background: black url(../img/rideaux1.jpg) no-repeat top;
 }
@@ -42,10 +53,23 @@ nav button {
 	margin-top: 7em;
 	overflow: hidden;
 }
+@media (min-width: 992px) {
+  .wrapper {
+    margin-top: 10.5em;
+  }
+  .wrapper h4 {
+    margin-top: 1em;
+  }
+}
 .inner {
 	overflow: auto;
     height: 95%;
 }
+@media (min-width: 992px) {
+  .inner {
+    width: 101.5%;
+  }
+  }
 .firstLetter li {
 		list-style-type: none; 
 }
@@ -59,7 +83,9 @@ nav button {
 
 
 /**** SPECTACLE ****/
-
+.card-text {
+  min-height: 200px;
+}
 .profile-card-5{
     margin-top:20px;
     background-color: rgba(0,0,0,0.63);
@@ -118,10 +144,8 @@ figure img{
 
 /**** Contact ****/
 .btn-contact .col{
-    margin-top: 2.5em;
-  }
-
-
+  margin-top: 2.5em;
+}
 @media (min-width: 992px) {
   .btn-contact {
     margin-top: 2em;
@@ -148,6 +172,9 @@ figure img{
   border-radius: 0;
   box-shadow: inset 0 0 0 var(--border-size) currentcolor;
   transition: background .8s ease;
+}
+.button a {
+  width: 250px;
 }
 .button:hover {
   background: rgba(100, 0, 0, 0.03);
@@ -198,9 +225,35 @@ figure img{
   -webkit-transform: scaleY(0);
           transform: scaleY(0);
 }
+@media (min-width: 992px) {
+  .frm-col {
+    margin-top: 1em;
+  }
+}
 
+.btn-dark {
+  background-color: black;
+}
+label {
+  color: white;
+}
+label::first-letter {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8em;
+}
+.form-control {
+  background: none;
+  border: none;
+  border-bottom: dashed 2px white;
+  padding: .5em;
+  transition: .3s ease;
+  color: white;
+}
 
-
+.form-select {
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: none;
+}
 
 /* Style all font awesome icons */
 footer .fa {
@@ -227,23 +280,69 @@ footer .float-right {
     color: white;
 }
 
+#flash-notice {
+  border: black 1px solid;
+  padding: 1em;
+  border-radius: 1em;
+  position: absolute;
+  top: 45%;
+  color: white;
+  font-size: 125%;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 90%;
+  max-width: 460px;
+}
+#flash-notice::first-letter {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+}
+
+.iChk {
+  display: none;
+}
+.lChk {
+  font-size: 1rem;
+  color: #fff;
+  display: inline-block;
+  padding: 0 0 0 1em;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}
+.iChk + .lChk::first-letter {
+  font-family: 'Great Vibes', cursive;
+}
+.lChk:before {
+  content: '';
+  display: inline-block;
+  background: black;
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  border-radius: 80%;
+  box-shadow: 0px 1px 0 0 rgba(0, 0, 0, .2);
+  box-sizing: border-box;
+  border: 10px solid #fff;
+  transition: border .3s ease;
+}
+.iChk:checked + .lChk:before {
+  border-color: #fff;
+  border-width: 3px;
+}
+.iChk + .lChk {
+  transition: color .7s ease;
+}
+.iChk:checked + .lChk {
+  color: grey;
+}
+
 /*
 
 	font-family: 'Orbitron', sans-serif;
 	font-family: 'Julius Sans One', sans-serif;
 #curtains {
 	background: black url(../img/rideaux1.jpg) no-repeat top;
-
 }
-#flash-notice {
-	border: black 1px solid;
-	padding: 5em;
-	border-radius: 1em;
-	position: absolute;
-	top: 45%;
-	left: 45%;
-	color: white;
-	background-color: rgba(0, 0, 0, 0.4);
+
 hr {
 	display: block;
 	clear: both;

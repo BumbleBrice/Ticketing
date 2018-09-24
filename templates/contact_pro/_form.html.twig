@@ -1,44 +1,46 @@
 {{ form_start(form, {'attr': {'class': 'test'}}) }}
     {{ form_errors(form) }}
 
-    <div class="form-group row mb-3">
-        <div class="col-sm-4 row">
-            {{ form_label(form.nom, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
-            <div class="col-sm-9 ">{{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}</div>
+    <div class="container">
+        <div class="form-group row mb-3">
+            <div class="frm-col col-sm-6 row">
+                {{ form_label(form.nom, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
+                <div class="col-sm-9 ">{{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}</div>
+            </div>
+            <div class="frm-col col-sm-6 row">
+                {{ form_label(form.prenom, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
+                <div class="col-sm-9">{{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}</div>
+            </div>
+            <div class="frm-col col-sm-6 row">
+                {{ form_label(form.email, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
+                <div class="col-sm-9">{{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}</div>
+            </div>
+            <div class="frm-col col-sm-6 row">
+                {{ form_label(form.telephone, null, {'label_attr': {'class': 'col-xs-4 col-sm-3 col-form-label'}}) }}
+                <div class="col-xs-8 col-sm-9">{{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}</div>
+            </div>
+            <div class="frm-col col-sm-6 row">
+                {{ form_label(form.organisme, null, {'label_attr': {'class': 'col-xs-4 col-sm-3 col-form-label'}}) }}
+                <div class="col-xs-8 col-sm-9">{{ form_widget(form.organisme, {'attr': {'class': 'form-control'}}) }}</div>
+            </div>
+            <div class="frm-col col-sm-6 row">
+                {{ form_label(form.vousetes, 'Vous êtes?', {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
+                <div class="col-sm-9">{{ form_widget(form.vousetes, {'attr': {'class': 'form-control form-select'}}) }}</div>
+            </div>
+            <div class="frm-col col-sm-6 row">
+                {{ form_label(form.adresse, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
+                <div class="col-sm-9">{{ form_widget(form.adresse, {'attr': {'class': 'form-control'}}) }}</div>
+            </div>
+            <div class="frm-col col-sm-6 row">
+                {{ form_label(form.message, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
+                <div class="col-sm-9">{{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}</div>
+            </div>
+            <div class="frm-col col-sm-6">
+                    {{ form_widget(form.newsletter, {'attr': {'class': 'iChk'}}) }}
+                    {{ form_label(form.newsletter, 'S\'inscrire à la newsletter', {'label_attr': {'class': 'lChk'}}) }}
+            </div>
         </div>
-        <div class="col-sm-4 row">
-            {{ form_label(form.prenom, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
-            <div class="col-sm-9">{{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}</div>
-        </div>
-        <div class="col-sm-4 row">
-            {{ form_label(form.email, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
-            <div class="col-sm-9">{{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}</div>
-        </div>
-        <div class="col-sm-4 row">
-            {{ form_label(form.telephone, null, {'label_attr': {'class': 'col-sm-4 col-form-label'}}) }}
-            <div class="col-sm-8">{{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}</div>
-        </div>
-        <div class="col-sm-4 row">
-            {{ form_label(form.organisme, null, {'label_attr': {'class': 'col-sm-4 col-form-label'}}) }}
-            <div class="col-sm-8">{{ form_widget(form.organisme, {'attr': {'class': 'form-control'}}) }}</div>
-        </div>
-        <div class="col-sm-4 row">
-            {{ form_label(form.vousetes, 'Vous êtes?', {'label_attr': {'class': 'col-sm-4 col-form-label'}}) }}
-            <div class="col-sm-8">{{ form_widget(form.vousetes, {'attr': {'class': 'form-control form-select'}}) }}</div>
-        </div>
-        <div class="col-sm-9 row">
-            {{ form_label(form.adresse, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
-            <div class="col-sm-9">{{ form_widget(form.adresse, {'attr': {'class': 'form-control'}}) }}</div>
-        </div>
-        <div class="col-sm-3">
-                {{ form_widget(form.newsletter, {'attr': {'class': 'iChk'}}) }}
-                {{ form_label(form.newsletter, 'S\'inscrire à la newsletter', {'label_attr': {'class': 'lChk'}}) }}
-        </div>
-        <div class="col-sm-12 row">
-            {{ form_label(form.message, null, {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
-            <div class="col-sm-10">{{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}</div>
-        </div>
+        <button class="btn btn-dark">{{ button_label|default('Envoyez le message') }}</button>
     </div>
-    <button class="btn btn-dark">{{ button_label|default('Envoyez le message') }}</button>
 
 {{ form_end(form) }}

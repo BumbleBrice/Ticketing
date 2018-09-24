@@ -41,7 +41,7 @@ class ContactProController extends Controller
 
             $this->addFlash(
                 'notice',
-                'votre message a bien été enregistrer'
+                'votre message a bien été Envoyer'
             );
 
             return $this->redirectToRoute('home');

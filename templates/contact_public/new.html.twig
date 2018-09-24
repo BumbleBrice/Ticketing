@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New ContactPublic{% endblock %}
+{% block title %}Contact public - Sur Vos Planches{% endblock %}
 
 {% block body %}
-    <h1>Create new ContactPublic</h1>
-
-    {{ include('contact_public/_form.html.twig') }}
-
-    <a href="{{ path('contact_public_index') }}">back to list</a>
+	<div id="contact" class="mt-1">
+    	<div  class="text-center text-white">
+    		<h3 class="mt-1">Contactez nous</h3>
+    		<span>Si vous êtes du public ...</span>
+    	</div>
+	
+		<div class="formContact">
+	       {{ include('contact_public/_form.html.twig') }}
+		</div>
+	</div>
 {% endblock %}

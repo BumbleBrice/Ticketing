@@ -41,7 +41,7 @@ class ContactPartenaireController extends Controller
 
             $this->addFlash(
                 'notice',
-                'votre message a bien été enregistrer'
+                'votre message a bien été envoyer'
             );
 
             return $this->redirectToRoute('home');
