@@ -3,29 +3,29 @@
 
     <div class="container">
         <div class="form-group row mb-3">
-            <div class="col-sm-4 row">
+            <div class="col-sm-6 row">
                 {{ form_label(form.nom, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
                 <div class="col-sm-9 ">{{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}</div>
             </div>
-            <div class="col-sm-4 row">
+            <div class="col-sm-6 row">
                 {{ form_label(form.prenom, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
                 <div class="col-sm-9">{{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}</div>
             </div>
-            <div class="col-sm-4 row">
+            <div class="col-sm-6 row">
                 {{ form_label(form.email, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
                 <div class="col-sm-9">{{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}</div>
             </div>
-            <div class="col-sm-4 row">
-                {{ form_label(form.telephone, null, {'label_attr': {'class': 'col-sm-4 col-form-label'}}) }}
-                <div class="col-sm-8">{{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}</div>
+            <div class="col-sm-6 row">
+                {{ form_label(form.telephone, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
+                <div class="col-sm-9">{{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}</div>
             </div>
             <div class="col-sm-6 row">
 				{{ form_label(form.sujet, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
 				<div class="col-sm-9">{{ form_widget(form.sujet, {'attr': {'class': 'form-control','rows': '5'}}) }}</div>
 			</div>
-            <div class="col-sm-12 row">
-                {{ form_label(form.message, null, {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
-                <div class="col-sm-10">{{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}</div>
+            <div class="col-sm-6 row">
+                {{ form_label(form.message, null, {'label_attr': {'class': 'col-sm-3 col-form-label'}}) }}
+                <div class="col-sm-9">{{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}</div>
             </div>
             <div class="col-sm-3">
                     {{ form_widget(form.newsletter, {'attr': {'class': 'iChk'}}) }}
