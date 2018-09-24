@@ -5,7 +5,7 @@
 	<div class="pb-2 mt-2">
 		<h3>Choisissez votre formulaire</h3>
 	</div>
-	<div class="row  btn-contact">
+{# 	<div class="row  btn-contact">
 		<div class="col">
 			<button class="button mx-auto">
 				<a class="btn text-light" href="{{ path('contact_partenaire_new') }}">Partenaire</a>
@@ -27,6 +27,12 @@
 				<div class="button__vertical"></div>
 			</button>
 		</div>
+	</div> #}
+	<div class="row btn-contact">
+		<div class="col"> <a class="buton darkred" href="{{ path('contact_public_new') }}"><div class="light"></div>Partenaire</a></div>
+		<div class="col"> <a class="buton darkred" href="{{ path('contact_public_new') }}"><div class="light"></div>Professionnels</a></div>
+		<div class="col"> <a class="buton darkred" href="{{ path('contact_public_new') }}"><div class="light"></div>Public</a></div>
 	</div>
+
 </div>
 {% endblock %}
