@@ -22,7 +22,7 @@ class ContactPartenaireController extends Controller
      */
     public function index(ContactPartenaireRepository $contactPartenaireRepository): Response
     {
-        return $this->render('contact_partenaire/index.html.twig', ['contact_partenaires' => $contactPartenaireRepository->findAll()]);
+        return $this->render('contact_partenaire/index.html.twig', ['contact_partenaires' => $contactPartenaireRepository->findAllR()]);
     }
 
     /**
@@ -36,6 +36,7 @@ class ContactPartenaireController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $contactPartenaire->setDate(new \DateTime('NOW'));
             $em->persist($contactPartenaire);
             $em->flush();
 

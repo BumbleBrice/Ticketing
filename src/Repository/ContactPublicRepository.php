@@ -19,6 +19,15 @@ class ContactPublicRepository extends ServiceEntityRepository
         parent::__construct($registry, ContactPublic::class);
     }
 
+    public function findAllR()
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.date', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 //    /**
 //     * @return ContactPublic[] Returns an array of ContactPublic objects
 //     */

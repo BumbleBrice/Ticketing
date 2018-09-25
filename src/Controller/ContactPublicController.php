@@ -22,7 +22,7 @@ class ContactPublicController extends Controller
      */
     public function index(ContactPublicRepository $contactPublicRepository): Response
     {
-        return $this->render('contact_public/index.html.twig', ['contact_publics' => $contactPublicRepository->findAll()]);
+        return $this->render('contact_public/index.html.twig', ['contact_publics' => $contactPublicRepository->findAllR()]);
     }
 
     /**
@@ -36,6 +36,7 @@ class ContactPublicController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $contactPublic->setDate(new \DateTime('NOW'));
             $em->persist($contactPublic);
             $em->flush();
 

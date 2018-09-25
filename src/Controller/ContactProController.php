@@ -22,7 +22,7 @@ class ContactProController extends Controller
      */
     public function index(ContactProRepository $contactProRepository): Response
     {
-        return $this->render('contact_pro/index.html.twig', ['contact_pros' => $contactProRepository->findAll()]);
+        return $this->render('contact_pro/index.html.twig', ['contact_pros' => $contactProRepository->findAllR()]);
     }
 
     /**
@@ -36,6 +36,7 @@ class ContactProController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $contactPro->setDate(new \DateTime('NOW'));
             $em->persist($contactPro);
             $em->flush();
 
