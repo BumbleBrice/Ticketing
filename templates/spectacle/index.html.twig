@@ -8,13 +8,13 @@
         {% for spectacle in spectacles %}
             <div class="col-md-4 mt-4">
                 <div class="card profile-card-5">
-                    <div class="card-img-block">
-                        <img class="card-img-top" src="{{ spectacle.Picture }}" alt="Card image cap">
+                    <div style="height: 200px;" class="card-img-block">
+                        <img  class="card-img-top" src="{{ spectacle.Picture }}" alt="Card image cap">
                     </div>
                     <div class="card-body pt-0 text-center">
                     <h5 class="card-title">{{ spectacle.nom }}</h5>
                     <p class="card-text">{{ spectacle.description }}</p>
-                    <p>Date : {{ spectacle.date ? spectacle.date|date('d-m-y') : '' }} à {{ spectacle.date ? spectacle.date|date('H') : '' }}h{{ spectacle.date ? spectacle.date|date('i') : '' }}</p>
+                    <p>A partir du {{ spectacle.date ? spectacle.date|date('d-m-y') : '' }} à {{ spectacle.date ? spectacle.date|date('H') : '' }}h{{ spectacle.date ? spectacle.date|date('i') : '' }}</p>
                     <a href="{{ path('spectacle_show', {'id': spectacle.id}) }}" class="btn btn-primary">Découvrir</a>
                   </div>
                 </div>

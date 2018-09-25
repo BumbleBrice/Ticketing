@@ -84,7 +84,10 @@ nav button {
 
 /**** SPECTACLE ****/
 .card-text {
-  min-height: 200px;
+  min-height: 30px;
+  white-space: nowrap; 
+    overflow: hidden;
+  text-overflow: ellipsis;
 }
 .profile-card-5{
     margin-top:20px;
