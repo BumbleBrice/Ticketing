@@ -6,9 +6,26 @@
     <div id="contact" class="wrapper backOffice">
        <div class="innerBack">
             <h3 class="text-white text-center">Liste des message de professionnels</h3>
-            <table class="table-striped table-dark">
+             {% for contact_pro in contact_pros %}       
+            <div class="list-group">
+              <a href="{{ path('contact_pro_show', {'id': contact_pro.id}) }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="row">
+                        <div class="col-md-2"><h5 class="mb-1">{{ contact_pro.nom }} {{ contact_pro.prenom }}</h5></div>
+                        <div class="col-md-3">{{ contact_pro.vousetes ? contact_pro.vousetes|join(', ') : '' }}</div>
+                        <div class="col-md-2">{{ contact_pro.organisme }}</div>
+                        <div class="col-md-3">{{ contact_pro.email }}</div>
+                        <div class="col-md-2">{{ contact_pro.telephone }}</div>
+                    </div>
+              </a>
+            </div>
+            {% else %}
+                <div>Pas de message pour l'instant</div>
+            {% endfor %}
+
+
+           {#  <table class="table-striped table-dark">
                 <thead >
-                    <tr >
+                    <tr>
                         <th class="pl-3">Nom et prenom</th>
                         <th class="pl-3">Email</th>
                         <th class="pl-3">Telephone</th>
@@ -31,7 +48,7 @@
                     </tr>
                 {% endfor %}
                 </tbody>
-            </table>
+            </table> #}
        </div>
     </div>
 

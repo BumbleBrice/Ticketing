@@ -18,11 +18,11 @@
                         {{ spectacle.description }}
                     </p>
                     <p>
-                        {{ spectacle.siteURL }}
+                        <a target="_blank" href="{{ spectacle.siteURL }}">{{ spectacle.siteURL }}</a>
                     </p>
                     <section>
-                        <i class="glyphicon glyphicon-calendar"></i>Le {{ spectacle.date ? spectacle.date|date('d-m-y') : '' }} à {{ spectacle.date ? spectacle.date|date('H') : '' }}h{{ spectacle.date ? spectacle.date|date('i') : '' }}
-                        <i class="glyphicon glyphicon-eye-open"></i>10000
+                        A partir du {{ spectacle.date ? spectacle.date|date('d-m-y') : '' }} à {{ spectacle.date ? spectacle.date|date('H') : '' }}h{{ spectacle.date ? spectacle.date|date('i') : '' }}
+                        
                     </section>
                 </div>
             </div>

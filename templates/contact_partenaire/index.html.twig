@@ -3,42 +3,22 @@
 {% block title %}ContactPartenaire index{% endblock %}
 
 {% block body %}
-    <h1>ContactPartenaire index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Telephone</th>
-                <th>Email</th>
-                <th>Sujet</th>
-                <th>Newsletter</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="container">
+        <h3>Liste de messages des partenaires</h3>
         {% for contact_partenaire in contact_partenaires %}
-            <tr>
-                <td>{{ contact_partenaire.id }}</td>
-                <td>{{ contact_partenaire.nom }}</td>
-                <td>{{ contact_partenaire.prenom }}</td>
-                <td>{{ contact_partenaire.telephone }}</td>
-                <td>{{ contact_partenaire.email }}</td>
-                <td>{{ contact_partenaire.sujet ? contact_partenaire.sujet|join(', ') : '' }}</td>
-                <td>{{ contact_partenaire.newsletter ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('contact_partenaire_show', {'id': contact_partenaire.id}) }}">show</a>
-                </td>
-            </tr>
+        <div class="list-group bg-dark">
+          <a href="{{ path('contact_partenaire_show', {'id': contact_partenaire.id}) }}" class="list-group-item list-group-item-success flex-column align-items-start">
+            <div class="row">
+                <div class="col-md-5"><h5 class="mb-1">{{ contact_partenaire.nom }} {{ contact_partenaire.prenom }}</h5></div>
+                <div class="col-md-2">{{ contact_partenaire.sujet ? contact_partenaire.sujet|join(', ') : '' }}</div>
+                <div class="col-md-3">{{ contact_partenaire.email }}</div>
+                <div class="col-md-2">{{ contact_partenaire.telephone }}</div>
+            </div>
+          </a>
+        </div>
         {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
+            <div>Pas de message pour l'instant</div>
         {% endfor %}
-        </tbody>
-    </table>
 
-    <a href="{{ path('contact_partenaire_new') }}">Create new</a>
+    </div>
 {% endblock %}

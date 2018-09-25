@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="row text-center mt-5">
+<div class="container">
+	<div class="row text-center mt-5">
 	<div class="col ">
-		<div class="card" style="width: 18rem;">
+		<div class="card btn-dark-light" style="width: 80%;">
 		  <div class="card-body">
 		    <h5 class="card-title text-white">Partenaire</h5>
 		    <a href="{{ path('contact_partenaire_index') }}" class="">
@@ -15,7 +16,7 @@
 		</div>
 	</div>
 	<div class="col ">
-		<div class="card" style="width: 18rem;">
+		<div class="card btn-dark-light" style="width: 80%;">
 		  <div class="card-body">
 		    <h5 class="card-title text-white">Professionnel</h5>
 		    <a href="{{ path('contact_pro_index') }}" class="">
@@ -27,7 +28,7 @@
 		</div>
 	</div>
 	<div class="col ">
-		<div class="card" style="width: 18rem;">
+		<div class="card btn-dark-light" style="width: 80%;">
 		  <div class="card-body">
 		    <h5 class="card-title text-white">Public</h5>
 		    <a href="{{ path('contact_public_index') }}" class="">
@@ -39,14 +40,12 @@
 		</div>
 	</div>
 </div>
-
-
 {{ form_start(form, {'attr': {'class': 'test'}}) }}
-    {{ form_errors(form) }}
-
-    {{ form_row(form.NewPassword, {'attr': {'class': 'unpute'}}) }}
-
-    <button class="btn">{{ button_label|default('Changer') }}</button>
-
+<div class="row mt-3 text-center">
+	{{ form_row(form.NewPassword, {'attr': {'class': ' col-sm-5 unpute'}}) }}
+	<div class="col-sm-2"><button class="btn">{{ button_label|default('Changer de password') }}</button></div>
+</div>
+{{ form_errors(form) }}
 {{ form_end(form) }}
+</div>
 {% endblock %}

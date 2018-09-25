@@ -8,7 +8,7 @@ body {
 }
 
 .content-wrapper {
-  min-height: calc(100vh - 46px);
+  min-height: calc(82vh - 46px);
 }
 
 .scroll-to-top:focus, .scroll-to-top:hover {
