@@ -11,10 +11,9 @@
           <a href="{{ path('contact_public_show', {'id': contact_public.id}) }}" class="list-group-item list-group-item-success {% if contact_public.status == 'vue' %}list-group-item-warning{% endif %} flex-column align-items-start">
             <div class="row">
                 <div class="col-md-3"><h5 class="mb-1">{{ contact_public.nom }} {{ contact_public.prenom }}</h5></div>
-                <div class="col-md-2">{{ contact_public.sujet ? contact_public.sujet|join(', ') : '' }}</div>
                 <div class="col-md-3">{{ contact_public.email }}</div>
                 <div class="col-md-2">{{ contact_public.telephone }}</div>
-                <div class="col-md-2">{{ contact_public.sujet }}</div>
+                <div class="col-md-4">Envoyer le :{{ contact_public.date ? contact_public.date|date('d-m-y') : '' }} à {{ contact_public.date ? contact_public.date|date('H') : '' }}h{{ contact_public.date ? contact_public.date|date('i') : '' }}</div>
             </div>
           </a>
         </div>
