@@ -3,7 +3,7 @@
 {% block title %}ContactPartenaire{% endblock %}
 
 {% block body %}
-    <div id="contact">
+    <div id="contact" class="container">
         <h4>Message de : {{ contact_partenaire.nom }} {{ contact_partenaire.prenom }}</h4>
         <table>
             <tbody>
@@ -22,6 +22,10 @@
                 <tr>
                     <th>Message</th>
                     <td> : {{ contact_partenaire.message }}</td>
+                </tr>
+                <tr>
+                    <th>Envoyer le</th>
+                    <td> : {{ contact_partenaire.date ? contact_partenaire.date|date('d-m-y') : '' }} à {{ contact_partenaire.date ? contact_partenaire.date|date('H') : '' }}h{{ contact_partenaire.date ? contact_partenaire.date|date('i') : '' }}</td>
                 </tr>
                 <tr>
                     <th>Newsletter</th>

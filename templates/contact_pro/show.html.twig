@@ -3,7 +3,7 @@
 {% block title %}ContactPro{% endblock %}
 
 {% block body %}
-    <div id="contact">
+    <div id="contact" class="container">
         <h4>Message de : {{ contact_pro.nom }} {{ contact_pro.prenom }}, {{ contact_pro.vousetes ? contact_pro.vousetes|join(', ') : '' }}</h4>
         <table>
             <tbody>
@@ -26,6 +26,10 @@
                 <tr>
                     <th>Message</th>
                     <td> : {{ contact_pro.message }}</td>
+                </tr>
+                <tr>
+                    <th>Envoyer le</th>
+                    <td> : {{ contact_pro.date ? contact_pro.date|date('d-m-y') : '' }} à {{ contact_pro.date ? contact_pro.date|date('H') : '' }}h{{ contact_pro.date ? contact_pro.date|date('i') : '' }}</td>
                 </tr>
                 <tr>
                     <th>Newsletter</th>

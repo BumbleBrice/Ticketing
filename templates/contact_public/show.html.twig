@@ -3,7 +3,7 @@
 {% block title %}ContactPublic{% endblock %}
 
 {% block body %}
-    <div id="contact">
+    <div id="contact" class="container">
         <h4>Message de : {{ contact_public.nom }} {{ contact_public.prenom }}</h4>
     </div>
 
@@ -24,6 +24,10 @@
             <tr>
                 <th>Message</th>
                 <td> : {{ contact_public.message }}</td>
+            </tr>
+            <tr>
+                <th>Envoyer le</th>
+                <td> : {{ contact_public.date ? contact_public.date|date('d-m-y') : '' }} à {{ contact_public.date ? contact_public.date|date('H') : '' }}h{{ contact_public.date ? contact_public.date|date('i') : '' }}</td>
             </tr>
             <tr>
                 <th>Newsletter</th>
