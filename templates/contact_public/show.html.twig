@@ -3,43 +3,43 @@
 {% block title %}ContactPublic{% endblock %}
 
 {% block body %}
-    <h1>ContactPublic</h1>
+    <div id="contact">
+        <h4>Message de : {{ contact_public.nom }} {{ contact_public.prenom }}</h4>
+    </div>
 
-    <table class="table">
+    <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ contact_public.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ contact_public.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ contact_public.prenom }}</td>
-            </tr>
-            <tr>
                 <th>Email</th>
-                <td>{{ contact_public.email }}</td>
+                <td> : {{ contact_public.email }}</td>
             </tr>
             <tr>
                 <th>Telephone</th>
-                <td>{{ contact_public.telephone }}</td>
+                <td> : {{ contact_public.telephone }}</td>
             </tr>
             <tr>
                 <th>Sujet</th>
-                <td>{{ contact_public.sujet }}</td>
+                <td> : {{ contact_public.sujet }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td> : {{ contact_public.message }}</td>
             </tr>
             <tr>
                 <th>Newsletter</th>
-                <td>{{ contact_public.newsletter ? 'Yes' : 'No' }}</td>
+                <td> : {{ contact_public.newsletter ? 'Yes' : 'No' }}</td>
             </tr>
         </tbody>
     </table>
+    <div class="row">
+            <div class="col">
+                <a class="btn btn-success" href="{{ path('contact_public_index') }}">Retour liste des message</a>
+            </div>
+            <div class="col">
+                {{ include('contact_public/_delete_form.html.twig') }}
+            </div>
+        </div>
 
-    <a href="{{ path('contact_public_index') }}">back to list</a>
 
 
-    {{ include('contact_public/_delete_form.html.twig') }}
 {% endblock %}
