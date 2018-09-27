@@ -19,6 +19,15 @@ class ContactProRepository extends ServiceEntityRepository
         parent::__construct($registry, ContactPro::class);
     }
 
+    public function findAllR()
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.date', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 //    /**
 //     * @return ContactPro[] Returns an array of ContactPro objects
 //     */

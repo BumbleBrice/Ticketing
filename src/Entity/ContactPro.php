@@ -66,6 +66,11 @@ class ContactPro
      */
     private $status;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+
     public function getStatus(): ?string
     {
         return $this->status;
@@ -187,6 +192,18 @@ class ContactPro
     public function setNewsletter(bool $newsletter): self
     {
         $this->newsletter = $newsletter;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

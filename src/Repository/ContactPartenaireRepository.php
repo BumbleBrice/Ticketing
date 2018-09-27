@@ -18,10 +18,19 @@ class ContactPartenaireRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, ContactPartenaire::class);
     }
+    
+    public function findAllR()
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.date', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
-//    /**
-//     * @return ContactPartenaire[] Returns an array of ContactPartenaire objects
-//     */
+// /**
+//   * @return ContactPartenaire[] Returns an array of ContactPartenaire objects
+//   */
     /*
     public function findByExampleField($value)
     {
