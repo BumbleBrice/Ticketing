@@ -2,13 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Newsletter;
 use App\Entity\ContactPublic;
 use App\Form\ContactPublicType;
 use App\Repository\ContactPublicRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
@@ -28,13 +29,57 @@ class ContactPublicController extends Controller
     /**
      * @Route("/new", name="contact_public_new", methods="GET|POST")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, \Swift_Mailer $mailer): Response
     {
         $contactPublic = new ContactPublic();
         $form = $this->createForm(ContactPublicType::class, $contactPublic);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if($form['newsletter']->getData())
+            {
+                $em = $this->getDoctrine()->getManager();
+
+                $newsletter = new Newsletter();
+                $newsletter->setEmail($form['email']->getData());
+                $newsletter->setFirstname($form['prenom']->getData());
+                $newsletter->setLastname($form['nom']->getData());
+                $em->persist($newsletter);
+                $em->flush();
+            }
+
+            // TOODOO envoyer l'email de préveunage
+            $message = (new \Swift_Message('Nouveaux contact Public'))
+                ->setFrom('testeur@tiste.com')
+                ->setTo('meunier_33@live.fr')
+                ->setBody(
+                    $this->renderView(
+                        'emails/contacts.html.twig',
+                        [
+                            'type' => 'Public',
+                            'nom' => $form['nom']->getData(),
+                            'prenom' => $form['prenom']->getDAta()
+                        ]
+                    ),
+                    'text/html'
+                )
+                /*
+                * If you also want to include a plaintext version of the message
+                ->addPart(
+                    $this->renderView(
+                        'emails/registration.txt.twig',
+                        [
+                            'name' => $name
+                        ]
+                    ),
+                    'text/plain'
+                )
+                */
+            ;
+
+            $mailer->send($message);
+
             $em = $this->getDoctrine()->getManager();
             $contactPublic->setDate(new \DateTime('NOW'));
             $em->persist($contactPublic);

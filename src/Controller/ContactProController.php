@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ContactPro;
+use App\Entity\Newsletter;
 use App\Form\ContactProType;
 use App\Repository\ContactProRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,13 +29,57 @@ class ContactProController extends Controller
     /**
      * @Route("/new", name="contact_pro_new", methods="GET|POST")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, \Swift_Mailer $mailer): Response
     {
         $contactPro = new ContactPro();
         $form = $this->createForm(ContactProType::class, $contactPro);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if($form['newsletter']->getData())
+            {
+                $em = $this->getDoctrine()->getManager();
+
+                $newsletter = new Newsletter();
+                $newsletter->setEmail($form['email']->getData());
+                $newsletter->setFirstname($form['prenom']->getData());
+                $newsletter->setLastname($form['nom']->getData());
+                $em->persist($newsletter);
+                $em->flush();
+            }
+
+            // TOODOO envoyer l'email de préveunage
+            $message = (new \Swift_Message('Nouveaux contact pro'))
+                ->setFrom('testeur@tiste.com')
+                ->setTo('meunier_33@live.fr')
+                ->setBody(
+                    $this->renderView(
+                        'emails/contacts.html.twig',
+                        [
+                            'type' => 'Pro',
+                            'nom' => $form['nom']->getData(),
+                            'prenom' => $form['prenom']->getDAta()
+                        ]
+                    ),
+                    'text/html'
+                )
+                /*
+                * If you also want to include a plaintext version of the message
+                ->addPart(
+                    $this->renderView(
+                        'emails/registration.txt.twig',
+                        [
+                            'name' => $name
+                        ]
+                    ),
+                    'text/plain'
+                )
+                */
+            ;
+
+            $mailer->send($message);
+
             $em = $this->getDoctrine()->getManager();
             $contactPro->setDate(new \DateTime('NOW'));
             $em->persist($contactPro);

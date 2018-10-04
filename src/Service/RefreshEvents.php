@@ -17,9 +17,6 @@ class RefreshEvents
             'include_closed'        => true,
             'include_without_sales' => true]);
 
-        dump($events);
-        dump($weezevent->getEventDetails('374379'));
-
         $eventsIds = [];
 
         foreach($events->events as $event)

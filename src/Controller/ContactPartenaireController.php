@@ -2,13 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Newsletter;
 use App\Entity\ContactPartenaire;
 use App\Form\ContactPartenaireType;
-use App\Repository\ContactPartenaireRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Repository\ContactPartenaireRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
@@ -28,13 +29,57 @@ class ContactPartenaireController extends Controller
     /**
      * @Route("/new", name="contact_partenaire_new", methods="GET|POST")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, \Swift_Mailer $mailer): Response
     {
         $contactPartenaire = new ContactPartenaire();
         $form = $this->createForm(ContactPartenaireType::class, $contactPartenaire);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if($form['newsletter']->getData())
+            {
+                $em = $this->getDoctrine()->getManager();
+
+                $newsletter = new Newsletter();
+                $newsletter->setEmail($form['email']->getData());
+                $newsletter->setFirstname($form['prenom']->getData());
+                $newsletter->setLastname($form['nom']->getData());
+                $em->persist($newsletter);
+                $em->flush();
+            }
+
+            // TOODOO envoyer l'email de préveunage
+            $message = (new \Swift_Message('Nouveaux contact partenaire'))
+                ->setFrom('testeur@tiste.com')
+                ->setTo('meunier_33@live.fr')
+                ->setBody(
+                    $this->renderView(
+                        'emails/contacts.html.twig',
+                        [
+                            'type' => 'Partenaire',
+                            'nom' => $form['nom']->getData(),
+                            'prenom' => $form['prenom']->getDAta()
+                        ]
+                    ),
+                    'text/html'
+                )
+                /*
+                * If you also want to include a plaintext version of the message
+                ->addPart(
+                    $this->renderView(
+                        'emails/registration.txt.twig',
+                        [
+                            'name' => $name
+                        ]
+                    ),
+                    'text/plain'
+                )
+                */
+            ;
+
+            $mailer->send($message);
+
             $em = $this->getDoctrine()->getManager();
             $contactPartenaire->setDate(new \DateTime('NOW'));
             $em->persist($contactPartenaire);

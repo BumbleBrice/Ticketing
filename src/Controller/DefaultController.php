@@ -70,11 +70,7 @@ class DefaultController extends Controller
     {
         $contactPro = $ContactProRepository->findBy(['status' => null]);
         $contactPublic = $ContactPublicRepository->findBy(['status' => null]);
-        $contactPartenaire = $ContactPartenaireRepository->findBy(['status' => null]); 
-
-        dump($contactPro);
-        dump($contactPublic);
-        dump($contactPartenaire);
+        $contactPartenaire = $ContactPartenaireRepository->findBy(['status' => null]);
 
         $user = $this->getUser();
 
