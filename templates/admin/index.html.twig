@@ -47,5 +47,11 @@
 </div>
 {{ form_errors(form) }}
 {{ form_end(form) }}
+
+<form method="post" action="" onsubmit="return confirm('test ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('newsletter') }}">
+    <input type="hidden" name="newsletterList" value="testJSON">
+    <button class="btn">Add</button>
+</form>
 </div>
 {% endblock %}

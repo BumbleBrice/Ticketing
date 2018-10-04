@@ -84,6 +84,10 @@ class DefaultController extends Controller
             $this->getDoctrine()->getManager()->flush();
         }
 
+        if ($this->isCsrfTokenValid('newsletter', $request->request->get('_token'))) {
+            dump($request->request->get('newsletterList'));
+        }
+
         return $this->render('admin/index.html.twig', [
             'vues_pro' => count($contactPro),
             'vues_public' => count($contactPublic),
